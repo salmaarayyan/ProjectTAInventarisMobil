@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Padding -->
     <dimen name="padding_extra_small">4dp</dimen>
@@ -12,23 +11,29 @@
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_large">24dp</dimen>
 
+    <!-- Spacing -->
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">12dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+
     <!-- Card -->
-    <!-- <dimen name="card_corner_radius">12dp</dimen> -->
+    <dimen name="card_corner_radius">12dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
 
     <!-- Button -->
     <dimen name="button_height">48dp</dimen>
-    <!-- <dimen name="button_corner_radius">8dp</dimen> -->
-    <!-- <dimen name="fab_size">56dp</dimen> -->
+    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
 
     <!-- Input Field -->
-    <!-- <dimen name="input_height">56dp</dimen> -->
-    <!-- <dimen name="input_corner_radius">8dp</dimen> -->
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="input_corner_radius">8dp</dimen>
 
     <!-- Icon -->
     <dimen name="icon_size_small">24dp</dimen>
     <dimen name="icon_size_medium">32dp</dimen>
     <dimen name="icon_size_large">48dp</dimen>
+    <dimen name="icon_size_extra_large">120dp</dimen>
 
     <!-- Text Size -->
     <dimen name="text_size_small">12sp</dimen>
@@ -37,4 +42,7 @@
     <dimen name="text_size_large">20sp</dimen>
     <dimen name="text_size_extra_large">24sp</dimen>
     <dimen name="text_size_title">28sp</dimen>
+    <dimen name="text_size_header">32sp</dimen>
+    <dimen name="text_size_card_title">22sp</dimen>
+    <dimen name="text_size_card_subtitle">18sp</dimen>
 </resources>
