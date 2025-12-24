@@ -20,13 +20,14 @@
     <string name="jumlah_mobil">%d mobil</string>
     <string name="belum_ada_merk">Belum ada merk</string>
     <string name="tambah_merk_baru">Tambah merk baru dengan tombol + di bawah</string>
+    <string name="klik_untuk_melihat_mobil">Klik untuk melihat mobil</string>
 
     <!-- List Mobil -->
     <string name="daftar_mobil">Daftar Mobil - %s</string>
     <string name="tambah_mobil">Tambah Mobil</string>
     <string name="belum_ada_mobil">Belum ada mobil</string>
     <string name="tambah_mobil_baru">Tambah mobil baru dengan tombol + di bawah</string>
-    <string name="stok">Stok</string>
+    <string name="stok">Stok:</string>
     <string name="detail">Detail</string>
     <string name="hapus">Hapus</string>
 
@@ -43,25 +44,17 @@
     <!-- Form Mobil -->
     <string name="form_tambah_mobil">Tambah Mobil</string>
     <string name="form_edit_mobil">Edit Mobil</string>
-    <string name="nama_mobil">Nama Mobil</string>
+    <string name="nama_mobil">Nama Mobil *</string>
+    <string name="nama_mobil_hint">Contoh: Avanza 1.5 G</string>
     <string name="merk">Merk</string>
-    <string name="pilih_tipe">Pilih Tipe</string>
+    <string name="pilih_tipe">Tipe *</string>
     <string name="stok_awal">Stok Awal</string>
     <string name="simpan">Simpan</string>
     <string name="batal">Batal</string>
-
-    <!-- Tipe Mobil -->
-    <string name="tipe_sedan">Sedan</string>
-    <string name="tipe_suv">SUV</string>
-    <string name="tipe_mpv">MPV</string>
-    <string name="tipe_crossover">Crossover</string>
-    <string name="tipe_hatchback">Hatchback</string>
-    <string name="tipe_offroad">Off Road</string>
-    <string name="tipe_sport">Sport</string>
-    <string name="tipe_pickup">Pickup</string>
-    <string name="tipe_electric">Electric</string>
-    <string name="tipe_hybrid">Hybrid</string>
-    <string name="tipe_lcgc">LCGC</string>
+    <string name="tahun_hint">Contoh: 2024</string>
+    <string name="harga_hint">Contoh: 250000000</string>
+    <string name="warna_hint">Contoh: Putih</string>
+    <string name="stok_hint">0</string>
 
     <!-- Validation Messages -->
     <string name="error_email_kosong">Email harus diisi</string>
@@ -70,10 +63,16 @@
     <string name="error_nama_merk_kosong">Nama merk harus diisi</string>
     <string name="error_nama_mobil_kosong">Nama mobil harus diisi</string>
     <string name="error_tipe_kosong">Tipe mobil harus dipilih</string>
-    <string name="error_tahun_invalid">Tahun minimal 2000</string>
-    <string name="error_harga_invalid">Harga harus lebih dari 0</string>
+    <string name="error_tahun_kosong">Tahun harus diisi</string>
+    <string name="error_tahun_invalid">Tahun harus berupa angka</string>
+    <string name="error_tahun_minimal">Tahun minimal 2000</string>
+    <string name="error_harga_kosong">Harga harus diisi</string>
+    <string name="error_harga_invalid">Harga harus berupa angka</string>
+    <string name="error_harga_minimal">Harga harus lebih dari 0</string>
     <string name="error_warna_kosong">Warna harus diisi</string>
-    <string name="error_stok_invalid">Stok tidak boleh negatif</string>
+    <string name="error_stok_kosong">Stok harus diisi</string>
+    <string name="error_stok_invalid">Stok harus berupa angka</string>
+    <string name="error_stok_minimal">Stok tidak boleh negatif</string>
 
     <!-- Toast Messages -->
     <string name="toast_login_berhasil">Login berhasil</string>
@@ -89,7 +88,11 @@
     <string name="toast_stok_berhasil_dikurangi">Stok berhasil dikurangi</string>
     <string name="toast_merk_sudah_ada">Merk sudah ada!</string>
     <string name="toast_mobil_sudah_ada">Mobil sudah ada!</string>
-    <string name="toast_stok_nol">Stok sudah 0, tidak bisa dikurangi</string>
+    <string name="toast_stok_nol">Stok sudah 0</string>
+    <string name="toast_gagal_merk">Gagal menghapus merk</string>
+    <string name="toast_gagal_mobil">Gagal menghapus mobil</string>
+    <string name="toast_gagal_stok_tambah">Gagal menambah stok</string>
+    <string name="toast_gagal_stok_kurangi">Gagal mengurangi stok</string>
 
     <!-- Dialog Messages -->
     <string name="dialog_yakin_logout">Yakin ingin logout?</string>
@@ -103,7 +106,12 @@
     <string name="dialog_hapus">Ya, Hapus</string>
 
     <!-- Loading -->
-    <!-- <string name="loading">Memuat data...</string> -->
+    <string name="loading">Memuat data…</string>
     <string name="error_load_data">Gagal memuat data</string>
     <string name="retry">Coba Lagi</string>
+
+    <!-- Error -->
+    <string name="koneksi_internet_bermasalah">Koneksi internet bermasalah</string>
+    <string name="server_error">Server error</string>
+    <string name="terjadi_kesalahan">Terjadi kesalahan</string>
 </resources>
