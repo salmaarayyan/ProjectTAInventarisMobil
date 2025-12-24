@@ -1,0 +1,109 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Showroom Mobil</string>
+
+    <!-- Login -->
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="masukkan_email">Masukkan email</string>
+    <string name="masukkan_password">Masukkan password</string>
+    <string name="please_sign_in">Please Sign In to continue.</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard">Dashboard</string>
+    <string name="logout">Logout</string>
+    <string name="tambah_merk">Tambah Merk</string>
+    <string name="edit_merk">Edit Merk</string>
+    <string name="hapus_merk">Hapus Merk</string>
+    <string name="nama_merk">Nama Merk</string>
+    <string name="jumlah_mobil">%d mobil</string>
+    <string name="belum_ada_merk">Belum ada merk</string>
+    <string name="tambah_merk_baru">Tambah merk baru dengan tombol + di bawah</string>
+
+    <!-- List Mobil -->
+    <string name="daftar_mobil">Daftar Mobil - %s</string>
+    <string name="tambah_mobil">Tambah Mobil</string>
+    <string name="belum_ada_mobil">Belum ada mobil</string>
+    <string name="tambah_mobil_baru">Tambah mobil baru dengan tombol + di bawah</string>
+    <string name="stok">Stok</string>
+    <string name="detail">Detail</string>
+    <string name="hapus">Hapus</string>
+
+    <!-- Detail Mobil -->
+    <string name="detail_mobil">Detail Mobil</string>
+    <string name="edit_mobil">Edit Mobil</string>
+    <string name="tipe">Tipe</string>
+    <string name="tahun">Tahun</string>
+    <string name="warna">Warna</string>
+    <string name="harga">Harga</string>
+    <string name="stok_unit">%d unit</string>
+    <string name="ditambahkan">Ditambahkan</string>
+
+    <!-- Form Mobil -->
+    <string name="form_tambah_mobil">Tambah Mobil</string>
+    <string name="form_edit_mobil">Edit Mobil</string>
+    <string name="nama_mobil">Nama Mobil</string>
+    <string name="merk">Merk</string>
+    <string name="pilih_tipe">Pilih Tipe</string>
+    <string name="stok_awal">Stok Awal</string>
+    <string name="simpan">Simpan</string>
+    <string name="batal">Batal</string>
+
+    <!-- Tipe Mobil -->
+    <string name="tipe_sedan">Sedan</string>
+    <string name="tipe_suv">SUV</string>
+    <string name="tipe_mpv">MPV</string>
+    <string name="tipe_crossover">Crossover</string>
+    <string name="tipe_hatchback">Hatchback</string>
+    <string name="tipe_offroad">Off Road</string>
+    <string name="tipe_sport">Sport</string>
+    <string name="tipe_pickup">Pickup</string>
+    <string name="tipe_electric">Electric</string>
+    <string name="tipe_hybrid">Hybrid</string>
+    <string name="tipe_lcgc">LCGC</string>
+
+    <!-- Validation Messages -->
+    <string name="error_email_kosong">Email harus diisi</string>
+    <string name="error_email_invalid">Format email tidak valid</string>
+    <string name="error_password_kosong">Password harus diisi</string>
+    <string name="error_nama_merk_kosong">Nama merk harus diisi</string>
+    <string name="error_nama_mobil_kosong">Nama mobil harus diisi</string>
+    <string name="error_tipe_kosong">Tipe mobil harus dipilih</string>
+    <string name="error_tahun_invalid">Tahun minimal 2000</string>
+    <string name="error_harga_invalid">Harga harus lebih dari 0</string>
+    <string name="error_warna_kosong">Warna harus diisi</string>
+    <string name="error_stok_invalid">Stok tidak boleh negatif</string>
+
+    <!-- Toast Messages -->
+    <string name="toast_login_berhasil">Login berhasil</string>
+    <string name="toast_login_gagal">Email atau password salah</string>
+    <string name="toast_logout_berhasil">Logout berhasil</string>
+    <string name="toast_merk_berhasil_ditambah">Merk berhasil ditambahkan</string>
+    <string name="toast_merk_berhasil_diubah">Merk berhasil diperbarui</string>
+    <string name="toast_merk_berhasil_dihapus">Merk berhasil dihapus</string>
+    <string name="toast_mobil_berhasil_ditambah">Mobil berhasil ditambahkan</string>
+    <string name="toast_mobil_berhasil_diubah">Mobil berhasil diperbarui</string>
+    <string name="toast_mobil_berhasil_dihapus">Mobil berhasil dihapus</string>
+    <string name="toast_stok_berhasil_ditambah">Stok berhasil ditambah</string>
+    <string name="toast_stok_berhasil_dikurangi">Stok berhasil dikurangi</string>
+    <string name="toast_merk_sudah_ada">Merk sudah ada!</string>
+    <string name="toast_mobil_sudah_ada">Mobil sudah ada!</string>
+    <string name="toast_stok_nol">Stok sudah 0, tidak bisa dikurangi</string>
+
+    <!-- Dialog Messages -->
+    <string name="dialog_yakin_logout">Yakin ingin logout?</string>
+    <string name="dialog_yakin_hapus_merk">Yakin hapus merk ini?</string>
+    <string name="dialog_semua_mobil_terhapus">Semua mobil dengan merk %s akan ikut terhapus</string>
+    <string name="dialog_yakin_hapus_mobil">Yakin hapus mobil ini?</string>
+    <string name="dialog_yakin_tambah_stok">Yakin ingin menambah stok?</string>
+    <string name="dialog_yakin_kurangi_stok">Yakin ingin mengurangi stok?</string>
+    <string name="dialog_ya">Ya</string>
+    <string name="dialog_tidak">Tidak</string>
+    <string name="dialog_hapus">Ya, Hapus</string>
+
+    <!-- Loading -->
+    <!-- <string name="loading">Memuat data...</string> -->
+    <string name="error_load_data">Gagal memuat data</string>
+    <string name="retry">Coba Lagi</string>
+</resources>
