@@ -8,7 +8,7 @@
     <string name="password">Password</string>
     <string name="masukkan_email">Masukkan email</string>
     <string name="masukkan_password">Masukkan password</string>
-    <string name="please_sign_in">Please Sign In to continue.</string>
+    <string name="please_sign_in">Silakan login untuk melanjutkan.</string>
 
     <!-- Dashboard -->
     <string name="dashboard">Dashboard</string>
