@@ -72,5 +72,24 @@ fun PetaNavigasi(
                 }
             )
         }
+        // Detail Mobil Screen
+        composable(
+            route = DestinasiDetailMobil.routeWithArgs,
+            arguments = listOf(
+                navArgument(DestinasiDetailMobil.MOBIL_ID) { type = NavType.IntType }
+            )
+        ) { backStackEntry ->
+            val mobilId = backStackEntry.arguments?.getInt(DestinasiDetailMobil.MOBIL_ID) ?: 0
+
+            HalamanDetailMobil(
+                mobilId = mobilId,
+                onBack = { navController.popBackStack() },
+                onEdit = {
+                    navController.navigate(
+                        DestinasiFormMobil.createRouteEdit(mobilId)
+                    )
+                }
+            )
+        }
     }
 }
