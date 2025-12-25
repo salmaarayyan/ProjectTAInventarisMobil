@@ -29,5 +29,11 @@ class UserPreferences(context: Context) {
         }
     }
 
+    // Get token
+    fun getToken(): String? {
+        return sharedPreferences.getString(KEY_TOKEN, null)
+    }
+
+
 
 }
