@@ -37,7 +37,6 @@ interface ServiceApiShowroom {
     ): ResponseApi
 
     // ==================== MOBIL ====================
-
     @GET("mobil/read.php")
     suspend fun getMobilList(
         @Header("Authorization") token: String,
@@ -66,5 +65,18 @@ interface ServiceApiShowroom {
     suspend fun deleteMobil(
         @Header("Authorization") token: String,
         @Query("id") id: Int
+    ): ResponseApi
+
+    // ==================== STOK ====================
+    @PUT("stok/tambah.php")
+    suspend fun tambahStok(
+        @Header("Authorization") token: String,
+        @Body stokRequest: StokRequest
+    ): ResponseApi
+
+    @PUT("stok/kurangi.php")
+    suspend fun kurangiStok(
+        @Header("Authorization") token: String,
+        @Body stokRequest: StokRequest
     ): ResponseApi
 }
