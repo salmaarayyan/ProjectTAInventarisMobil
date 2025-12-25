@@ -54,4 +54,9 @@ class UserPreferences(context: Context) {
         return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
     }
 
+    // Clear data saat logout
+    fun clearUserData() {
+        sharedPreferences.edit().clear().apply()
+    }
+
 }
