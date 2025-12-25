@@ -111,5 +111,23 @@ fun PetaNavigasi(
                 onNavigateBack = { navController.popBackStack() }
             )
         }
+        // Form Mobil - Edit Mode
+        composable(
+            route = DestinasiFormMobil.routeEdit,
+            arguments = listOf(
+                navArgument(DestinasiFormMobil.MOBIL_ID) { type = NavType.IntType }
+            )
+        ) { backStackEntry ->
+            val mobilId = backStackEntry.arguments?.getInt(DestinasiFormMobil.MOBIL_ID) ?: 0
+
+            HalamanFormMobil(
+                isEditMode = true,
+                merkId = 0,
+                merkName = "",
+                mobilId = mobilId,
+                onBack = { navController.popBackStack() },
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
     }
 }
