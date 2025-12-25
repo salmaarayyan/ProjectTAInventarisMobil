@@ -44,4 +44,9 @@ class UserPreferences(context: Context) {
         return sharedPreferences.getString(KEY_USER_NAME, null)
     }
 
+    // Get user email
+    fun getUserEmail(): String? {
+        return sharedPreferences.getString(KEY_USER_EMAIL, null)
+    }
+
 }
