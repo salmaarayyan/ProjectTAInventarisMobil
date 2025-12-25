@@ -17,5 +17,17 @@ class UserPreferences(context: Context) {
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
     }
 
+    // Save token dan user data setelah login
+    fun saveUserData(token: String, userId: Int, userName: String, userEmail: String) {
+        sharedPreferences.edit().apply {
+            putString(KEY_TOKEN, token)
+            putInt(KEY_USER_ID, userId)
+            putString(KEY_USER_NAME, userName)
+            putString(KEY_USER_EMAIL, userEmail)
+            putBoolean(KEY_IS_LOGGED_IN, true)
+            apply()
+        }
+    }
+
 
 }
