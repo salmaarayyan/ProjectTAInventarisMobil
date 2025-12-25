@@ -49,4 +49,9 @@ class UserPreferences(context: Context) {
         return sharedPreferences.getString(KEY_USER_EMAIL, null)
     }
 
+    // Check if user is logged in
+    fun isLoggedIn(): Boolean {
+        return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
+    }
+
 }
