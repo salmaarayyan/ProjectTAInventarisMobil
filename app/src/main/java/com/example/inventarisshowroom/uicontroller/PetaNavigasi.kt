@@ -30,5 +30,20 @@ fun PetaNavigasi(
                 }
             )
         }
+        // Dashboard Screen (List Merk)
+        composable(route = DestinasiDashboard.route) {
+            HalamanDashboard(
+                onMerkClick = { merkId, merkName ->
+                    navController.navigate(
+                        DestinasiListMobil.createRoute(merkId, merkName)
+                    )
+                },
+                onLogout = {
+                    navController.navigate(DestinasiLogin.route) {
+                        popUpTo(0) { inclusive = true }
+                    }
+                }
+            )
+        }
     }
 }
