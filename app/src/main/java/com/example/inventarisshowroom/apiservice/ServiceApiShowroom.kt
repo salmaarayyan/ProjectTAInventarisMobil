@@ -13,5 +13,27 @@ interface ServiceApiShowroom {
     @POST("logout.php")
     suspend fun logout(@Header("Authorization") token: String): Response<Void>
 
+    // ==================== MERK ====================
+    @GET("merk/read.php")
+    suspend fun getMerkList(@Header("Authorization") token: String): MerkListResponse
+
+
+    @POST("merk/create.php")
+    suspend fun createMerk(
+        @Header("Authorization") token: String,
+        @Body merkRequest: MerkRequest
+    ): ResponseApi
+
+    @PUT("merk/update.php")
+    suspend fun updateMerk(
+        @Header("Authorization") token: String,
+        @Body merkRequest: MerkUpdateRequest
+    ): ResponseApi
+
+    @HTTP(method = "DELETE", path = "merk/delete.php", hasBody = false)
+    suspend fun deleteMerk(
+        @Header("Authorization") token: String,
+        @Query("id") id: Int
+    ): ResponseApi
 
 }
