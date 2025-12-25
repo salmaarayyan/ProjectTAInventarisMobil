@@ -36,4 +36,35 @@ interface ServiceApiShowroom {
         @Query("id") id: Int
     ): ResponseApi
 
+    // ==================== MOBIL ====================
+
+    @GET("mobil/read.php")
+    suspend fun getMobilList(
+        @Header("Authorization") token: String,
+        @Query("merk_id") merkId: Int
+    ): MobilListResponse
+
+    @GET("mobil/read_detail.php")
+    suspend fun getMobilDetail(
+        @Header("Authorization") token: String,
+        @Query("id") id: Int
+    ): DataMobilDetail
+
+    @POST("mobil/create.php")
+    suspend fun createMobil(
+        @Header("Authorization") token: String,
+        @Body mobilRequest: MobilRequest
+    ): ResponseApi
+
+    @PUT("mobil/update.php")
+    suspend fun updateMobil(
+        @Header("Authorization") token: String,
+        @Body mobilRequest: MobilUpdateRequest
+    ): ResponseApi
+
+    @HTTP(method = "DELETE", path = "mobil/delete.php", hasBody = false)
+    suspend fun deleteMobil(
+        @Header("Authorization") token: String,
+        @Query("id") id: Int
+    ): ResponseApi
 }
