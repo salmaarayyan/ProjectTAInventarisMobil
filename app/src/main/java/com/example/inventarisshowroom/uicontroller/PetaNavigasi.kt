@@ -45,5 +45,32 @@ fun PetaNavigasi(
                 }
             )
         }
+        // List Mobil Screen
+        composable(
+            route = DestinasiListMobil.routeWithArgs,
+            arguments = listOf(
+                navArgument(DestinasiListMobil.MERK_ID) { type = NavType.IntType },
+                navArgument(DestinasiListMobil.MERK_NAME) { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val merkId = backStackEntry.arguments?.getInt(DestinasiListMobil.MERK_ID) ?: 0
+            val merkName = backStackEntry.arguments?.getString(DestinasiListMobil.MERK_NAME) ?: ""
+
+            HalamanListMobil(
+                merkId = merkId,
+                merkName = merkName,
+                onBack = { navController.popBackStack() },
+                onAddMobil = {
+                    navController.navigate(
+                        DestinasiFormMobil.createRouteAdd(merkId, merkName)
+                    )
+                },
+                onMobilClick = { mobilId ->
+                    navController.navigate(
+                        DestinasiDetailMobil.createRoute(mobilId)
+                    )
+                }
+            )
+        }
     }
 }
