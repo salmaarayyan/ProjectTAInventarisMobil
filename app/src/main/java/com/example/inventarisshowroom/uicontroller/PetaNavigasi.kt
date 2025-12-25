@@ -91,5 +91,25 @@ fun PetaNavigasi(
                 }
             )
         }
+        // Form Mobil - Add Mode
+        composable(
+            route = DestinasiFormMobil.routeAdd,
+            arguments = listOf(
+                navArgument(DestinasiFormMobil.MERK_ID) { type = NavType.IntType },
+                navArgument(DestinasiFormMobil.MERK_NAME) { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val merkId = backStackEntry.arguments?.getInt(DestinasiFormMobil.MERK_ID) ?: 0
+            val merkName = backStackEntry.arguments?.getString(DestinasiFormMobil.MERK_NAME) ?: ""
+
+            HalamanFormMobil(
+                isEditMode = false,
+                merkId = merkId,
+                merkName = merkName,
+                mobilId = null,
+                onBack = { navController.popBackStack() },
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
     }
 }
