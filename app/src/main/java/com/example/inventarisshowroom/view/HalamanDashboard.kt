@@ -319,3 +319,15 @@ fun MerkCard(
         )
     }
 }
+
+@Composable
+fun MerkDialog(
+    title: String,
+    namaMerk: String,
+    error: String?,
+    onNameChange: (String) -> Unit,
+    onDismiss: () -> Unit,
+    onSave: () -> Unit
+) {
+
+}
