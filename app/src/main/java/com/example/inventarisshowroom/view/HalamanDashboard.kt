@@ -21,7 +21,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.filled.DirectionsCar
 import kotlinx.coroutines.launch
-
+import androidx.compose.foundation.clickable
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.ui.text.font.FontStyle
+import com.example.inventarisshowroom.modeldata.DataMerk
 
 @Composable
 fun HalamanDashboard(
@@ -206,4 +210,16 @@ fun HalamanDashboard(
             }
         )
     }
+}
+
+@Composable
+fun MerkCard(
+    merk: DataMerk,
+    onClick: () -> Unit,
+    onEdit: () -> Unit,
+    onDelete: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val context = LocalContext.current
+    var showDeleteDialog by remember { mutableStateOf(false) }
 }
