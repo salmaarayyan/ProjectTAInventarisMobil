@@ -8,6 +8,11 @@ import com.example.inventarisshowroom.viewmodel.DetailMobilViewModel
 import com.example.inventarisshowroom.viewmodel.FormMobilViewModel
 import com.example.inventarisshowroom.viewmodel.provider.PenyediaViewModel
 
+import androidx.compose.ui.platform.LocalContext
+
+import com.example.inventarisshowroom.local.UserPreferences
+import com.example.inventarisshowroom.viewmodel.DetailMobilUiState
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HalamanFormMobil(
@@ -21,5 +26,40 @@ fun HalamanFormMobil(
     viewModel: FormMobilViewModel = viewModel(factory = PenyediaViewModel.Factory),
     detailViewModel: DetailMobilViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
+    val context = LocalContext.current
+    val userPreferences = remember { UserPreferences(context) }
+    val token = userPreferences.getToken() ?: ""
+    val scope = rememberCoroutineScope()
+    val formState = viewModel.formState
 
+    val tipeMobilList = listOf(
+        "Sedan", "SUV", "MPV", "Crossover", "Hatchback",
+        "Off Road", "Sport", "Pickup", "Electric", "Hybrid", "LCGC"
+    )
+
+    var expanded by remember { mutableStateOf(false) }
+
+    LaunchedEffect(isEditMode, mobilId) {
+        if (isEditMode && mobilId != null) {
+            detailViewModel.loadDetailMobil(token, mobilId)
+        } else {
+            viewModel.setAddMode(merkId, merkName)
+        }
+    }
+
+    LaunchedEffect(detailViewModel.detailMobilUiState) {
+        if (isEditMode && detailViewModel.detailMobilUiState is DetailMobilUiState.Success) {
+            val mobil = (detailViewModel.detailMobilUiState as DetailMobilUiState.Success).mobilDetail
+            viewModel.setEditMode(
+                id = mobil.id,
+                namaMobil = mobil.nama_mobil,
+                merkId = mobil.merk_id,
+                merkName = mobil.nama_merk,
+                tipe = mobil.tipe,
+                tahun = mobil.tahun,
+                harga = mobil.harga,
+                warna = mobil.warna
+            )
+        }
+    }
 }
