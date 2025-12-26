@@ -36,6 +36,13 @@ object PenyediaViewModel {
                 repositoryMobil = aplikasiShowroom().container.repositoryMobil
             )
         }
+
+        // FormMobilViewModel
+        initializer {
+            FormMobilViewModel(
+                repositoryMobil = aplikasiShowroom().container.repositoryMobil
+            )
+        }
     }
 }
 
