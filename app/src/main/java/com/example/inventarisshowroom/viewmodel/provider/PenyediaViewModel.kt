@@ -22,6 +22,13 @@ object PenyediaViewModel {
                 repositoryMerk = aplikasiShowroom().container.repositoryMerk
             )
         }
+
+        // ListMobilViewModel
+        initializer {
+            ListMobilViewModel(
+                repositoryMobil = aplikasiShowroom().container.repositoryMobil
+            )
+        }
     }
 }
 
