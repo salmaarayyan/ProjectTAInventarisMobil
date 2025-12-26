@@ -203,6 +203,26 @@ fun HalamanFormMobil(
                 )
             )
 
+            // Warna
+            OutlinedTextField(
+                value = formState.warna,
+                onValueChange = { viewModel.updateWarna(it) },
+                label = { Text(stringResource(R.string.warna)) },
+                placeholder = { Text(stringResource(R.string.warna_hint)) },
+                isError = formState.warnaError != null,
+                supportingText = {
+                    formState.warnaError?.let {
+                        Text(it, color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary
+                )
+            )
+
         }
     }
 }
