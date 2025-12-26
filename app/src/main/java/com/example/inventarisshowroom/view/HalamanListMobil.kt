@@ -364,6 +364,31 @@ fun MobilCard(
         )
     }
 
+    // Tambah Stok Dialog
+    if (showTambahStokDialog) {
+        AlertDialog(
+            onDismissRequest = { showTambahStokDialog = false },
+            title = { Text(stringResource(R.string.dialog_yakin_tambah_stok)) },
+            confirmButton = {
+                TextButton(onClick = { onTambahStok(); showTambahStokDialog = false }) {
+                    Text(
+                        stringResource(R.string.dialog_ya),
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showTambahStokDialog = false }) {
+                    Text(
+                        stringResource(R.string.dialog_tidak),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        )
+    }
+
+
 
 }
 
