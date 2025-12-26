@@ -177,5 +177,33 @@ fun HalamanDashboard(
         )
     }
 
-
+    // Logout Confirmation Dialog
+    if (showLogoutDialog) {
+        AlertDialog(
+            onDismissRequest = { showLogoutDialog = false },
+            title = { Text(stringResource(R.string.dialog_yakin_logout)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        userPreferences.clearUserData()
+                        Toast.makeText(context, context.getString(R.string.toast_logout_berhasil), Toast.LENGTH_SHORT).show()
+                        onLogout()
+                    }
+                ) {
+                    Text(
+                        stringResource(R.string.dialog_ya),
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showLogoutDialog = false }) {
+                    Text(
+                        stringResource(R.string.dialog_tidak),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        )
+    }
 }
