@@ -14,6 +14,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.Image
+
 
 @Composable
 fun HalamanLogin(
@@ -61,6 +64,19 @@ fun HalamanLogin(
             ),
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
         ) {
+            Column(
+                modifier = Modifier.padding(32.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Logo
+                Image(
+                    painter = painterResource(id = R.drawable.login),
+                    contentDescription = null,
+                    modifier = Modifier.size(120.dp)
+                )
+
+
+            }
 
         }
     }
