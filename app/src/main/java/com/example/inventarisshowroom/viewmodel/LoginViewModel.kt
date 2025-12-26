@@ -6,7 +6,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.inventarisshowroom.repositori.RepositoryAuth
-
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 
 sealed class LoginUiState {
     object Idle : LoginUiState()
@@ -76,6 +79,40 @@ class LoginViewModel(
         )
 
         return emailError == null && passwordError == null
+    }
+
+    // Login function
+    fun login() {
+        if (!validateForm()) return
+
+        viewModelScope.launch {
+            loginUiState = LoginUiState.Loading
+            loginUiState = try {
+                val response = repositoryAuth.login(
+                    email = formState.email,
+                    password = formState.password
+                )
+
+                if (response.success) {
+                    LoginUiState.Success(response)
+                } else {
+                    LoginUiState.Error(response.message)
+                }
+            } catch (e: IOException) {
+                LoginUiState.Error("Koneksi internet bermasalah")
+            } catch (e: HttpException) {
+                // Parse error response dari backend
+                val errorMessage = when (e.code()) {
+                    401 -> "Email atau password salah"
+                    400 -> "Email atau password salah"
+                    500 -> "Server error"
+                    else -> "Terjadi kesalahan pada server"
+                }
+                LoginUiState.Error(errorMessage)
+            } catch (e: Exception) {
+                LoginUiState.Error(e.message ?: "Terjadi kesalahan")
+            }
+        }
     }
 
 
