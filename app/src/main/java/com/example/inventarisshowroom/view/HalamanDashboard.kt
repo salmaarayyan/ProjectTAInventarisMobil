@@ -222,4 +222,68 @@ fun MerkCard(
 ) {
     val context = LocalContext.current
     var showDeleteDialog by remember { mutableStateOf(false) }
+
+    Card(
+        modifier = modifier.fillMaxWidth().clickable(onClick = onClick),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // ===== 🚗 ICON MOBIL (STATIC) =====
+            Icon(
+                imageVector = Icons.Default.DirectionsCar,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(56.dp)
+                    .padding(end = 16.dp),
+                tint = MaterialTheme.colorScheme.primary
+            )
+
+            // Content Column
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = merk.nama_merk,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Text(
+                    text = context.getString(R.string.jumlah_mobil, merk.jumlah_mobil),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = stringResource(R.string.klik_untuk_melihat_mobil),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                    fontStyle = FontStyle.Italic
+                )
+            }
+
+            // Action Buttons
+            Row {
+                IconButton(onClick = onEdit) {
+                    Icon(
+                        Icons.Default.Edit,
+                        contentDescription = stringResource(R.string.edit_merk),
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+                IconButton(onClick = { showDeleteDialog = true }) {
+                    Icon(
+                        Icons.Default.Delete,
+                        contentDescription = stringResource(R.string.hapus_merk),
+                        tint = MaterialTheme.colorScheme.error
+                    )
+                }
+            }
+        }
+    }
 }
