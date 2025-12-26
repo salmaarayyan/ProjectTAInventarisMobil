@@ -28,6 +28,10 @@ class ListMobilViewModel(
     var currentMerkName by mutableStateOf("")
         private set
 
+    fun setCurrentMerk(merkId: Int, merkName: String) {
+        currentMerkId = merkId
+        currentMerkName = merkName
+    }
 
 }
 
