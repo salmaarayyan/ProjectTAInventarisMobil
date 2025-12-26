@@ -75,5 +75,12 @@ class DashboardViewModel(
         isDialogOpen = true
     }
 
+    // Close dialog
+    fun closeDialog() {
+        isDialogOpen = false
+        merkFormState = MerkFormState()
+        editMerkId = null
+    }
+
 }
 
