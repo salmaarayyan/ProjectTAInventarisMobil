@@ -11,10 +11,7 @@ ProjectTAInventarisMobil/
 └── backend (branch) - PHP Backend API
 ```
 
-**Untuk melihat kode Backend:** Switch ke branch `backend`. Dapat diakses kode lengkapnya melalui [link berikut](https://github.com/salmaarayyan/ProjectTAInventarisMobil/tree/backend).
-```bash
-git checkout backend
-```
+**Untuk melihat kode Backend:** Switch ke branch `backend` atau bisa diakses kode lengkapnya melalui [link berikut](https://github.com/salmaarayyan/ProjectTAInventarisMobil/tree/backend).
 
 ## 📱 Fitur Aplikasi
 
@@ -36,9 +33,9 @@ git checkout backend
 3. Klik tombol "LOGIN"
 4. Jika berhasil, akan masuk ke Dashboard
 
-|            Sebelum Login            |                 Setelah Login                  |
-|:-----------------------------------:|:----------------------------------------------:|
-| ![](docs/screenshots/PAM-LOGIN.png) | ![](docs/screenshots/PAM-LOGIN%20BERHASIL.png) |
+|                     Sebelum Login                      |                           Setelah Login                           |
+|:------------------------------------------------------:|:-----------------------------------------------------------------:|
+| <img src="docs/screenshots/PAM-LOGIN.png" width="250"> | <img src="docs/screenshots/PAM-LOGIN%20BERHASIL.png" width="250"> |
 
 **Logout:**
 1. Di halaman Dashboard, klik icon logout (atas kanan)
@@ -47,7 +44,7 @@ git checkout backend
 
 |           Validasi Logout            |                 Setelah Logout                  |
 |:------------------------------------:|:-----------------------------------------------:|
-| ![](docs/screenshots/PAM-LOGOUT.png) | ![](docs/screenshots/PAM-LOGOUT%20BERHASIL.png) |
+| <img src="docs/screenshots/PAM-LOGOUT.png" width="250"> | <img src="docs/screenshots/PAM-LOGOUT%20BERHASIL.png" width="250"> |
 
 ### 2. Mengelola Merk Mobil
 
@@ -82,9 +79,9 @@ git checkout backend
 1. Klik card merk
 2. Tampil daftar mobil merk tersebut
 
-|                 Daftar Mobil Sesuai Merk                 | 
-|:--------------------------------------------------------:|
-| ![](docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png) |
+|                          Daftar Mobil Sesuai Merk                           | 
+|:---------------------------------------------------------------------------:|
+| <img src="docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png" width="300"> |
 
 ### 3. Mengelola Data Mobil
 
@@ -125,9 +122,9 @@ git checkout backend
 1. Di card mobil, klik tombol "DETAIL"
 2. Tampil informasi lengkap mobil
 
-|                 Detail Mobil                 | 
-|:--------------------------------------------:|
-| ![](docs/screenshots/PAM-DETAIL%20MOBIL.png) |
+|                          Detail Mobil                           | 
+|:---------------------------------------------------------------:|
+| <img src="docs/screenshots/PAM-DETAIL%20MOBIL.png" width="300"> |
 
 ### 4. Update Stok Mobil
 
