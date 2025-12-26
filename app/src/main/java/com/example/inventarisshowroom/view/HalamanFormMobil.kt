@@ -182,6 +182,27 @@ fun HalamanFormMobil(
                 )
             )
 
+            // Harga
+            OutlinedTextField(
+                value = formState.harga,
+                onValueChange = { viewModel.updateHarga(it) },
+                label = { Text(stringResource(R.string.harga)) },
+                placeholder = { Text(stringResource(R.string.harga_hint)) },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                isError = formState.hargaError != null,
+                supportingText = {
+                    formState.hargaError?.let {
+                        Text(it, color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary
+                )
+            )
+
         }
     }
 }
