@@ -82,5 +82,24 @@ class DashboardViewModel(
         editMerkId = null
     }
 
+    // Save merk (create or update)
+    suspend fun saveMerk(token: String): Boolean {
+        if (merkFormState.namaMerk.isEmpty()) {
+            merkFormState = merkFormState.copy(namaMerkError = "Nama merk harus diisi")
+            return false
+        }
+
+        return try {
+            if (editMerkId == null) {
+                repositoryMerk.createMerk(token, merkFormState.namaMerk)
+            } else {
+                repositoryMerk.updateMerk(token, editMerkId!!, merkFormState.namaMerk)
+            }
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
 }
 
