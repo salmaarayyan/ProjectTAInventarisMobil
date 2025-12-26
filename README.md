@@ -4,6 +4,18 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
 
 ---
 
+## 🔗 Repository Structure
+```
+ProjectTAInventarisMobil/
+├── master (branch) - Android Kotlin UI + Documentation
+└── backend (branch) - PHP Backend API
+```
+
+**Untuk melihat kode Backend:** Switch ke branch `backend`. Dapat diakses kode lengkapnya melalui [link berikut](https://github.com/salmaarayyan/ProjectTAInventarisMobil/tree/backend).
+```bash
+git checkout backend
+```
+
 ## 📱 Fitur Aplikasi
 
 - Login & Logout dengan JWT Authentication
@@ -24,10 +36,18 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
 3. Klik tombol "LOGIN"
 4. Jika berhasil, akan masuk ke Dashboard
 
+|            Sebelum Login            |                 Setelah Login                  |
+|:-----------------------------------:|:----------------------------------------------:|
+| ![](docs/screenshots/PAM-LOGIN.png) | ![](docs/screenshots/PAM-LOGIN%20BERHASIL.png) |
+
 **Logout:**
 1. Di halaman Dashboard, klik icon logout (atas kanan)
 2. Konfirmasi logout
 3. Kembali ke halaman Login
+
+|           Validasi Logout            |                 Setelah Logout                  |
+|:------------------------------------:|:-----------------------------------------------:|
+| ![](docs/screenshots/PAM-LOGOUT.png) | ![](docs/screenshots/PAM-LOGOUT%20BERHASIL.png) |
 
 ### 2. Mengelola Merk Mobil
 
@@ -36,19 +56,35 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
 2. Masukkan nama merk
 3. Klik "SIMPAN"
 
+|           Sebelum Penambahan            |             Pop-up Tambah Merk              |                   Setelah Penambahan                   |
+|:---------------------------------------:|:-------------------------------------------:|:------------------------------------------------------:|
+| ![](docs/screenshots/PAM-DASHBOARD.png) | ![](docs/screenshots/PAM-TAMBAH%20MERK.png) | ![](docs/screenshots/PAM-TAMBAH%20MERK%20BERHASIL.png) |
+
 **Edit Merk:**
 1. Di card merk, klik icon pensil
 2. Ubah nama merk
 3. Klik "SIMPAN"
+
+|            Sebelum Perubahan            |             Pop-up Edit Merk              |                  Setelah Perubahan                   |
+|:---------------------------------------:|:-----------------------------------------:|:----------------------------------------------------:|
+| ![](docs/screenshots/PAM-TAMBAH%20MERK%20BERHASIL.png) | ![](docs/screenshots/PAM-EDIT%20MERK.png) | ![](docs/screenshots/PAM-EDIT%20MERK%20BERHASIL.png) |
 
 **Hapus Merk:**
 1. Di card merk, klik icon sampah
 2. Konfirmasi penghapusan
 3. Semua mobil dengan merk ini akan terhapus
 
+|                 Sebelum Penghapusan                  |               Validasi Delete               |                  Setelah Penghapusan                   |
+|:----------------------------------------------------:|:-------------------------------------------:|:------------------------------------------------------:|
+| ![](docs/screenshots/PAM-EDIT%20MERK%20BERHASIL.png) | ![](docs/screenshots/PAM-DELETE%20MERK.png) | ![](docs/screenshots/PAM-DELETE%20MERK%20BERHASIL.png) |
+
 **Lihat Mobil per Merk:**
 1. Klik card merk
 2. Tampil daftar mobil merk tersebut
+
+|                 Daftar Mobil Sesuai Merk                 | 
+|:--------------------------------------------------------:|
+| ![](docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png) |
 
 ### 3. Mengelola Data Mobil
 
@@ -63,19 +99,35 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
     - Stok Awal
 3. Klik "SIMPAN"
 
+|                    Sebelum Penambahan                    |              Form Tambah Mobil               |                   Setelah Penambahan                    |
+|:--------------------------------------------------------:|:--------------------------------------------:|:-------------------------------------------------------:|
+| ![](docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png) | ![](docs/screenshots/PAM-TAMBAH%20MOBIL.png) | ![](docs/screenshots/PAM-TAMBAH%20MOBIL%20BERHASIL.png) |
+
 **Edit Mobil:**
 1. Di card mobil, klik tombol "DETAIL"
 2. Klik tombol "EDIT MOBIL"
 3. Ubah data yang diperlukan
 4. Klik "SIMPAN"
 
+|              Sebelum Perubahan               |              Form Edit Mobil               |                   Setelah Perubahan                   |
+|:--------------------------------------------:|:------------------------------------------:|:-----------------------------------------------------:|
+| ![](docs/screenshots/PAM-DETAIL%20MOBIL.png) | ![](docs/screenshots/PAM-EDIT%20MOBIL.png) | ![](docs/screenshots/PAM-EDIT%20MOBIL%20BERHASIL.png) |
+
 **Hapus Mobil:**
 1. Di card mobil, klik tombol "HAPUS"
 2. Konfirmasi penghapusan
 
+|            Sebelum Penghapusan             |               Validasi Delete                |                   Setelah Penghapusan                   |
+|:------------------------------------------:|:--------------------------------------------:|:-------------------------------------------------------:|
+| ![](docs/screenshots/PAM-LIST%20MOBIL.png) | ![](docs/screenshots/PAM-DELETE%20MOBIL.png) | ![](docs/screenshots/PAM-DELETE%20MOBIL%20BERHASIL.png) |
+
 **Lihat Detail Mobil:**
 1. Di card mobil, klik tombol "DETAIL"
 2. Tampil informasi lengkap mobil
+
+|                 Detail Mobil                 | 
+|:--------------------------------------------:|
+| ![](docs/screenshots/PAM-DETAIL%20MOBIL.png) |
 
 ### 4. Update Stok Mobil
 
@@ -84,11 +136,19 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
 2. Konfirmasi penambahan
 3. Stok bertambah 1
 
+|                    Sebelum Penambahan                    |             Validasi Penambahan             |                   Setelah Penambahan                   |
+|:--------------------------------------------------------:|:-------------------------------------------:|:------------------------------------------------------:|
+| ![](docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png) | ![](docs/screenshots/PAM-TAMBAH%20STOK.png) | ![](docs/screenshots/PAM-TAMBAH%20STOK%20BERHASIL.png) |
+
 **Kurangi Stok:**
 1. Di card mobil, klik tombol merah (-)
 2. Konfirmasi pengurangan
 3. Stok berkurang 1
 4. *Tombol disabled jika stok = 0*
+
+|                  Sebelum Pengurangan                   |             Validasi Pengurangan             |                   Setelah Pengurangan                   |
+|:------------------------------------------------------:|:--------------------------------------------:|:-------------------------------------------------------:|
+| ![](docs/screenshots/PAM-TAMBAH%20STOK%20BERHASIL.png) | ![](docs/screenshots/PAM-KURANGI%20STOK.png) | ![](docs/screenshots/PAM-KURANGI%20STOK%20BERHASIL.png) |
 
 ---
 
@@ -132,9 +192,6 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
 
 ### Relasi Antar Tabel (RAT)
 ![RAT](docs/PAM-RAT.png)
-
-### Software Requirements Specification (SRS)
-Dokumen lengkap: [SRS.pdf](docs/082-Salmaa Rifhani Rayyan-SRS.pdf)
 
 ---
 
@@ -332,14 +389,3 @@ This project is for educational purposes (Tugas Akhir).
 
 ---
 
-## 🔗 Repository Structure
-```
-ProjectTAInventarisMobil/
-├── master (branch) - Android Kotlin UI + Documentation
-└── backend (branch) - PHP Backend API
-```
-
-**Untuk melihat kode Backend:** Switch ke branch `backend`
-```bash
-git checkout backend
-```
