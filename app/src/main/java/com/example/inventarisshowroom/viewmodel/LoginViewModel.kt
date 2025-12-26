@@ -48,6 +48,23 @@ class LoginViewModel(
         )
     }
 
+    // Validasi email real-time
+    private fun validateEmail(email: String): String? {
+        return when {
+            email.isEmpty() -> "Email harus diisi"
+            !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> "Format email tidak valid"
+            else -> null
+        }
+    }
+
+    // Validasi password real-time
+    private fun validatePassword(password: String): String? {
+        return when {
+            password.isEmpty() -> "Password harus diisi"
+            else -> null
+        }
+    }
+
 
 }
 
