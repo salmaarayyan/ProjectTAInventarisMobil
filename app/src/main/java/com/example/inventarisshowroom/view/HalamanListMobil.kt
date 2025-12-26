@@ -22,7 +22,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.inventarisshowroom.R
-import java.util.*
+import com.example.inventarisshowroom.modeldata.DataMobil
 
 @Composable
 fun HalamanListMobil(
@@ -172,10 +172,21 @@ fun HalamanListMobil(
                     }
                 }
             }
-
         }
-
     }
+}
+
+
+@Composable
+fun MobilCard(
+    mobil: DataMobil,
+    onDetailClick: () -> Unit,
+    onTambahStok: () -> Unit,
+    onKurangiStok: () -> Unit,
+    onDelete: () -> Unit,
+    modifier: Modifier = Modifier
+) {
 
 }
+
 
