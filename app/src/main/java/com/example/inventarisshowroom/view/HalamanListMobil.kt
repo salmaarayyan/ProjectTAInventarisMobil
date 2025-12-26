@@ -64,10 +64,22 @@ fun HalamanListMobil(
                 )
             }
         }
-    ) {
+    ) { paddingValues ->
+
+        when (val state = viewModel.listMobilUiState) {
+            is ListMobilUiState.Loading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize().padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
+                }
+            }
+
+
+        }
 
     }
-
 
 }
 
