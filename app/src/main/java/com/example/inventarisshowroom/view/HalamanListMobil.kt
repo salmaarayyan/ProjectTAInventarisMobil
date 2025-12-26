@@ -200,7 +200,144 @@ fun MobilCard(
             containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(dimensionResource(R.dimen.padding_medium))
+        ) {
+            // ===== ROW 1: Nama Mobil + Icon 🚗 =====
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = mobil.nama_mobil,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.weight(1f)
+                )
 
+                Icon(
+                    imageVector = Icons.Default.DirectionsCar,
+                    contentDescription = null,
+                    modifier = Modifier.size(40.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+            }
+
+            // ===== ROW 2: Tipe • Tahun • Warna =====
+            Text(
+                text = "${mobil.tipe} • ${mobil.tahun} • ${mobil.warna}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacing_medium)))
+
+            // ===== ROW 3: Harga =====
+            Text(
+                text = formatRupiah(mobil.harga),
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.primary
+            )
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacing_large)))
+
+            // ===== ROW 4: Stok [+] angka [-] =====
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
+                ),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(dimensionResource(R.dimen.spacing_medium)),
+                    horizontalArrangement = Arrangement.Start,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Tombol Tambah Stok (+)
+                    IconButton(
+                        onClick = { showTambahStokDialog = true },
+                        colors = IconButtonDefaults.iconButtonColors(
+                            containerColor = ActionSuccess
+                        )
+                    ) {
+                        Icon(
+                            Icons.Default.Add,
+                            contentDescription = "Tambah Stok",
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
+                    }
+
+                    // Jumlah Stok (di tengah)
+                    Text(
+                        text = "${mobil.jumlah_stok}",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.padding(horizontal = 12.dp)
+                    )
+
+                    // Tombol Kurangi Stok (-)
+                    IconButton(
+                        onClick = { if (mobil.jumlah_stok > 0) showKurangiStokDialog = true },
+                        enabled = mobil.jumlah_stok > 0,
+                        colors = IconButtonDefaults.iconButtonColors(
+                            containerColor = MaterialTheme.colorScheme.error,
+                            disabledContainerColor = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    ) {
+                        Icon(
+                            Icons.Default.RemoveCircle,
+                            contentDescription = "Kurangi Stok",
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacing_medium)))
+
+            // ===== ROW 5: Tombol Detail & Hapus (seperti semula) =====
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_small))
+            ) {
+                Button(
+                    onClick = onDetailClick,
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary
+                    )
+                ) {
+                    Icon(
+                        Icons.Default.Visibility,
+                        contentDescription = null,
+                        modifier = Modifier.size(dimensionResource(R.dimen.icon_size_small))
+                    )
+                    Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_extra_small)))
+                    Text(stringResource(R.string.detail))
+                }
+
+                Button(
+                    onClick = { showDeleteDialog = true },
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
+                    Icon(
+                        Icons.Default.Delete,
+                        contentDescription = null,
+                        modifier = Modifier.size(dimensionResource(R.dimen.icon_size_small))
+                    )
+                    Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_extra_small)))
+                    Text(stringResource(R.string.hapus))
+                }
+            }
+        }
     }
 
 }
