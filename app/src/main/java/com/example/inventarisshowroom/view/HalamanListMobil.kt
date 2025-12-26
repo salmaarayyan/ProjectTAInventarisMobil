@@ -388,6 +388,29 @@ fun MobilCard(
         )
     }
 
+    // Kurangi Stok Dialog
+    if (showKurangiStokDialog) {
+        AlertDialog(
+            onDismissRequest = { showKurangiStokDialog = false },
+            title = { Text(stringResource(R.string.dialog_yakin_kurangi_stok)) },
+            confirmButton = {
+                TextButton(onClick = { onKurangiStok(); showKurangiStokDialog = false }) {
+                    Text(
+                        stringResource(R.string.dialog_ya),
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showKurangiStokDialog = false }) {
+                    Text(
+                        stringResource(R.string.dialog_tidak),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        )
+    }
 
 
 }
