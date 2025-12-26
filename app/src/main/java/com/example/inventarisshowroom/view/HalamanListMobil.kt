@@ -23,8 +23,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.inventarisshowroom.R
 import com.example.inventarisshowroom.modeldata.DataMobil
-
-
+import java.util.*
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.RemoveCircle
+import androidx.compose.material.icons.filled.Visibility
+import com.example.inventarisshowroom.ui.theme.ActionSuccess
+import java.text.NumberFormat
+import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun HalamanListMobil(
@@ -411,8 +416,10 @@ fun MobilCard(
             }
         )
     }
-
-
 }
 
+fun formatRupiah(amount: Double): String {
+    val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+    return formatter.format(amount).replace("Rp", "Rp ")
+}
 
