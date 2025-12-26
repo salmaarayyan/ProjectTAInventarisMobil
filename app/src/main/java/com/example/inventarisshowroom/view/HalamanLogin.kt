@@ -169,6 +169,30 @@ fun HalamanLogin(
 
                 Spacer(modifier = Modifier.height(24.dp))
 
+                // Login Button
+                Button(
+                    onClick = { viewModel.login() },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary
+                    ),
+                    enabled = loginUiState !is LoginUiState.Loading
+                ) {
+                    if (loginUiState is LoginUiState.Loading) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            color = MaterialTheme.colorScheme.onPrimary
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(R.string.login).uppercase(),
+                            style = MaterialTheme.typography.labelLarge
+                        )
+                    }
+                }
+
             }
         }
     }
