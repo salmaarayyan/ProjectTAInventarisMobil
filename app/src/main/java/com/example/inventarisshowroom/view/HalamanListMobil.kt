@@ -99,6 +99,80 @@ fun HalamanListMobil(
                 }
             }
 
+            is ListMobilUiState.Success -> {
+                if (state.mobilList.isEmpty()) {
+                    Box(
+                        modifier = Modifier.fillMaxSize().padding(paddingValues),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(
+                                imageVector = Icons.Default.DirectionsCar,
+                                contentDescription = null,
+                                modifier = Modifier.size(64.dp),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                text = stringResource(R.string.belum_ada_mobil),
+                                style = MaterialTheme.typography.titleLarge
+                            )
+                            Text(
+                                text = stringResource(R.string.tambah_mobil_baru),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                } else {
+                    LazyColumn(
+                        contentPadding = paddingValues,
+                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
+                        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_large))
+                    ) {
+                        items(state.mobilList) { mobil ->
+                            MobilCard(
+                                mobil = mobil,
+                                onDetailClick = { onMobilClick(mobil.id) },
+                                onTambahStok = {
+                                    scope.launch {
+                                        val success = viewModel.tambahStok(token, mobil.id)
+                                        if (success) {
+                                            Toast.makeText(context, context.getString(R.string.toast_stok_berhasil_ditambah), Toast.LENGTH_SHORT).show()
+                                            viewModel.loadMobilList(token, merkId)
+                                        } else {
+                                            Toast.makeText(context, context.getString(R.string.toast_gagal_stok_tambah), Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+                                },
+                                onKurangiStok = {
+                                    scope.launch {
+                                        val success = viewModel.kurangiStok(token, mobil.id)
+                                        if (success) {
+                                            Toast.makeText(context, context.getString(R.string.toast_stok_berhasil_dikurangi), Toast.LENGTH_SHORT).show()
+                                            viewModel.loadMobilList(token, merkId)
+                                        } else {
+                                            Toast.makeText(context, context.getString(R.string.toast_stok_nol), Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+                                },
+                                onDelete = {
+                                    scope.launch {
+                                        val success = viewModel.deleteMobil(token, mobil.id)
+                                        if (success) {
+                                            Toast.makeText(context, context.getString(R.string.toast_mobil_berhasil_dihapus), Toast.LENGTH_SHORT).show()
+                                            viewModel.loadMobilList(token, merkId)
+                                        } else {
+                                            Toast.makeText(context, context.getString(R.string.toast_gagal_mobil), Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+                                }
+                            )
+                        }
+                    }
+                }
+            }
+
         }
 
     }
