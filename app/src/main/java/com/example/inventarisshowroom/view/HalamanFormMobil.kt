@@ -18,7 +18,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.KeyboardType
-
+import android.widget.Toast
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -246,6 +247,49 @@ fun HalamanFormMobil(
                 )
             }
 
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacing_small)))
+
+            // Buttons Row
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_medium))
+            ) {
+                // Cancel Button
+                OutlinedButton(
+                    onClick = onBack,
+                    modifier = Modifier.weight(0.5f),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                ) {
+                    Text(stringResource(R.string.batal))
+                }
+
+                // Save Button
+                Button(
+                    onClick = {
+                        scope.launch {
+                            val success = viewModel.saveMobil(token)
+                            if (success) {
+                                Toast.makeText(
+                                    context,
+                                    if (isEditMode) context.getString(R.string.toast_mobil_berhasil_diubah) else context.getString(R.string.toast_mobil_berhasil_ditambah),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                onNavigateBack()
+                            } else {
+                                Toast.makeText(context, context.getString(R.string.toast_mobil_sudah_ada), Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    },
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary
+                    )
+                ) {
+                    Text(stringResource(R.string.simpan))
+                }
+            }
         }
     }
 }
