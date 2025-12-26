@@ -115,7 +115,10 @@ class LoginViewModel(
         }
     }
 
-
+    // Reset state
+    fun resetState() {
+        loginUiState = LoginUiState.Idle
+    }
 }
 
 
