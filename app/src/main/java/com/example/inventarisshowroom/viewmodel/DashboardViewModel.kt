@@ -68,5 +68,12 @@ class DashboardViewModel(
         isDialogOpen = true
     }
 
+    // Open dialog untuk edit merk
+    fun openEditDialog(id: Int, namaMerk: String) {
+        editMerkId = id
+        merkFormState = MerkFormState(namaMerk = namaMerk)
+        isDialogOpen = true
+    }
+
 }
 
