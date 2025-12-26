@@ -7,6 +7,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.inventarisshowroom.repositori.RepositoryMerk
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 
 sealed class DashboardUiState {
     data class Success(val merkList: List<DataMerk>) : DashboardUiState()
@@ -34,6 +37,21 @@ class DashboardViewModel(
 
     var editMerkId by mutableStateOf<Int?>(null)
         private set
+
+    // Load merk list
+    fun loadMerkList(token: String) {
+        viewModelScope.launch {
+            dashboardUiState = DashboardUiState.Loading
+            dashboardUiState = try {
+                val merkList = repositoryMerk.getMerkList(token)
+                DashboardUiState.Success(merkList)
+            } catch (e: IOException) {
+                DashboardUiState.Error
+            } catch (e: HttpException) {
+                DashboardUiState.Error
+            }
+        }
+    }
 
 }
 
