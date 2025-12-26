@@ -32,6 +32,22 @@ class LoginViewModel(
     var formState by mutableStateOf(LoginFormState())
         private set
 
+    // Update email
+    fun updateEmail(email: String) {
+        formState = formState.copy(
+            email = email,
+            emailError = validateEmail(email)
+        )
+    }
+
+    // Update password
+    fun updatePassword(password: String) {
+        formState = formState.copy(
+            password = password,
+            passwordError = validatePassword(password)
+        )
+    }
+
 
 }
 
