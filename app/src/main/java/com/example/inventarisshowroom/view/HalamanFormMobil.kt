@@ -7,9 +7,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.inventarisshowroom.viewmodel.DetailMobilViewModel
 import com.example.inventarisshowroom.viewmodel.FormMobilViewModel
 import com.example.inventarisshowroom.viewmodel.provider.PenyediaViewModel
-
+import com.example.inventarisshowroom.R
 import androidx.compose.ui.platform.LocalContext
-
+import androidx.compose.ui.res.stringResource
 import com.example.inventarisshowroom.local.UserPreferences
 import com.example.inventarisshowroom.viewmodel.DetailMobilUiState
 
@@ -61,5 +61,18 @@ fun HalamanFormMobil(
                 warna = mobil.warna
             )
         }
+    }
+
+    Scaffold(
+        topBar = {
+            ShowroomTopAppBar(
+                title = if (isEditMode) stringResource(R.string.form_edit_mobil) else stringResource(R.string.form_tambah_mobil),
+                canNavigateBack = true,
+                onNavigateBack = onBack
+            )
+        }
+    ) { paddingValues ->
+
+
     }
 }
