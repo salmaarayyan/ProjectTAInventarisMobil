@@ -12,6 +12,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.example.inventarisshowroom.local.UserPreferences
 import com.example.inventarisshowroom.viewmodel.DetailMobilUiState
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.res.dimensionResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,7 +76,34 @@ fun HalamanFormMobil(
             )
         }
     ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .padding(dimensionResource(R.dimen.padding_medium))
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_large))
+        ) {
+            // Nama Mobil
+            OutlinedTextField(
+                value = formState.namaMobil,
+                onValueChange = { viewModel.updateNamaMobil(it) },
+                label = { Text(stringResource(R.string.nama_mobil)) },
+                placeholder = { Text(stringResource(R.string.nama_mobil_hint)) },
+                isError = formState.namaMobilError != null,
+                supportingText = {
+                    formState.namaMobilError?.let {
+                        Text(it, color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary
+                )
+            )
 
-
+        }
     }
 }
