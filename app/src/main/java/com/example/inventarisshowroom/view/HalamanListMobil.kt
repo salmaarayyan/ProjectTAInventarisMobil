@@ -7,7 +7,22 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.inventarisshowroom.viewmodel.ListMobilViewModel
 import com.example.inventarisshowroom.viewmodel.provider.PenyediaViewModel
 import com.example.inventarisshowroom.local.UserPreferences
-
+import com.example.inventarisshowroom.viewmodel.ListMobilUiState
+import kotlinx.coroutines.launch
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import android.widget.Toast
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.DirectionsCar
+import androidx.compose.material3.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import com.example.inventarisshowroom.R
+import java.util.*
 
 @Composable
 fun HalamanListMobil(
@@ -28,6 +43,31 @@ fun HalamanListMobil(
         viewModel.setCurrentMerk(merkId, merkName)
         viewModel.loadMobilList(token, merkId)
     }
+
+    Scaffold(
+        topBar = {
+            ShowroomTopAppBar(
+                title = context.getString(R.string.daftar_mobil, merkName),
+                canNavigateBack = true,
+                onNavigateBack = onBack
+            )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = onAddMobil,
+                containerColor = MaterialTheme.colorScheme.primary
+            ) {
+                Icon(
+                    Icons.Default.Add,
+                    contentDescription = stringResource(R.string.tambah_mobil),
+                    tint = MaterialTheme.colorScheme.onPrimary
+                )
+            }
+        }
+    ) {
+
+    }
+
 
 }
 
