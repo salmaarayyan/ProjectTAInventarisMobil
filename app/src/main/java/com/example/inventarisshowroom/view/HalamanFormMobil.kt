@@ -16,6 +16,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -157,6 +160,27 @@ fun HalamanFormMobil(
                     }
                 }
             }
+
+            // Tahun
+            OutlinedTextField(
+                value = formState.tahun,
+                onValueChange = { viewModel.updateTahun(it) },
+                label = { Text(stringResource(R.string.tahun)) },
+                placeholder = { Text(stringResource(R.string.tahun_hint)) },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                isError = formState.tahunError != null,
+                supportingText = {
+                    formState.tahunError?.let {
+                        Text(it, color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary
+                )
+            )
 
         }
     }
