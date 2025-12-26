@@ -10,6 +10,9 @@ import com.example.inventarisshowroom.local.UserPreferences
 import androidx.compose.material3.*
 import androidx.compose.ui.res.stringResource
 import com.example.inventarisshowroom.R
+import androidx.compose.foundation.layout.*
+import androidx.compose.ui.Alignment
+import com.example.inventarisshowroom.viewmodel.DetailMobilUiState
 
 @Composable
 fun HalamanDetailMobil(
@@ -36,7 +39,17 @@ fun HalamanDetailMobil(
             )
         }
     ) { paddingValues ->
+        when (val state = viewModel.detailMobilUiState) {
+            is DetailMobilUiState.Loading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize().padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
+                }
+            }
 
+        }
 
     }
 }
