@@ -129,4 +129,43 @@ class FormMobilViewModel(
         )
     }
 
+    // Validasi form
+    private fun validateForm(): Boolean {
+        val namaMobilError = if (formState.namaMobil.isEmpty()) "Nama mobil harus diisi" else null
+        val tipeError = if (formState.tipe.isEmpty()) "Tipe mobil harus dipilih" else null
+        val tahunError = when {
+            formState.tahun.isEmpty() -> "Tahun harus diisi"
+            formState.tahun.toIntOrNull() == null -> "Tahun harus berupa angka"
+            formState.tahun.toInt() < 2000 -> "Tahun minimal 2000"
+            else -> null
+        }
+        val hargaError = when {
+            formState.harga.isEmpty() -> "Harga harus diisi"
+            formState.harga.toDoubleOrNull() == null -> "Harga harus berupa angka"
+            formState.harga.toDouble() <= 0 -> "Harga harus lebih dari 0"
+            else -> null
+        }
+        val warnaError = if (formState.warna.isEmpty()) "Warna harus diisi" else null
+        val stokError = if (!isEditMode) {
+            when {
+                formState.stok.isEmpty() -> "Stok harus diisi"
+                formState.stok.toIntOrNull() == null -> "Stok harus berupa angka"
+                formState.stok.toInt() < 0 -> "Stok tidak boleh negatif"
+                else -> null
+            }
+        } else null
+
+        formState = formState.copy(
+            namaMobilError = namaMobilError,
+            tipeError = tipeError,
+            tahunError = tahunError,
+            hargaError = hargaError,
+            warnaError = warnaError,
+            stokError = stokError
+        )
+
+        return namaMobilError == null && tipeError == null && tahunError == null &&
+                hargaError == null && warnaError == null && stokError == null
+    }
+
 }
