@@ -53,5 +53,13 @@ class DashboardViewModel(
         }
     }
 
+    // Update nama merk
+    fun updateNamaMerk(nama: String) {
+        merkFormState = merkFormState.copy(
+            namaMerk = nama,
+            namaMerkError = if (nama.isEmpty()) "Nama merk harus diisi" else null
+        )
+    }
+
 }
 
