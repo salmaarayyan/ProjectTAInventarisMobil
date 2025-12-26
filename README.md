@@ -131,7 +131,7 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
 ![Activity Diagram](docs/PAM%20-%20AD%20KURANGI%20STOK.png)
 
 ### Relasi Antar Tabel (RAT)
-![RAT](docs/rat.png)
+![RAT](docs/PAM-RAT.png)
 
 ### Software Requirements Specification (SRS)
 Dokumen lengkap: [SRS.pdf](docs/082-Salmaa Rifhani Rayyan-SRS.pdf)
