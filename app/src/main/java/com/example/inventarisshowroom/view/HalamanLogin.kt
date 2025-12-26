@@ -10,6 +10,10 @@ import androidx.compose.ui.platform.LocalContext
 import com.example.inventarisshowroom.R
 import com.example.inventarisshowroom.local.UserPreferences
 import com.example.inventarisshowroom.viewmodel.LoginUiState
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.ui.Alignment
 
 @Composable
 fun HalamanLogin(
@@ -42,6 +46,22 @@ fun HalamanLogin(
                 viewModel.resetState()
             }
             else -> {}
+        }
+    }
+    Box(
+        modifier = modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            ),
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        ) {
+
         }
     }
 
