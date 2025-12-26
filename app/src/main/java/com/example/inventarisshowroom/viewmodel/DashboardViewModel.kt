@@ -8,3 +8,8 @@ sealed class DashboardUiState {
     object Loading : DashboardUiState()
 }
 
+data class MerkFormState(
+    val namaMerk: String = "",
+    val namaMerkError: String? = null
+)
+
