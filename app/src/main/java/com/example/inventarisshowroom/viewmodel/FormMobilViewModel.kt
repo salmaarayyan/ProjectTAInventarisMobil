@@ -37,5 +37,38 @@ class FormMobilViewModel(
     var editMobilId by mutableStateOf(0)
         private set
 
+    // Set mode tambah
+    fun setAddMode(merkId: Int, merkName: String) {
+        isEditMode = false
+        editMobilId = 0
+        formState = FormMobilState(
+            merkId = merkId,
+            merkName = merkName
+        )
+    }
+
+    // Set mode edit
+    fun setEditMode(
+        id: Int,
+        namaMobil: String,
+        merkId: Int,
+        merkName: String,
+        tipe: String,
+        tahun: Int,
+        harga: Double,
+        warna: String
+    ) {
+        isEditMode = true
+        editMobilId = id
+        formState = FormMobilState(
+            namaMobil = namaMobil,
+            merkId = merkId,
+            merkName = merkName,
+            tipe = tipe,
+            tahun = tahun.toString(),
+            harga = harga.toString(),
+            warna = warna
+        )
+    }
 
 }
