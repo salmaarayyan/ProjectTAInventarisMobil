@@ -186,6 +186,12 @@ fun MobilCard(
     onDelete: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
+    var showDeleteDialog by remember { mutableStateOf(false) }
+    var showTambahStokDialog by remember { mutableStateOf(false) }
+    var showKurangiStokDialog by remember { mutableStateOf(false) }
+
+
 
 }
 
