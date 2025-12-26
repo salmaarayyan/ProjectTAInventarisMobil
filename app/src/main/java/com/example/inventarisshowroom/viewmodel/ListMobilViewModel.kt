@@ -58,8 +58,15 @@ class ListMobilViewModel(
             false
         }
     }
-
-
+    
+    suspend fun kurangiStok(token: String, mobilId: Int): Boolean {
+        return try {
+            repositoryMobil.kurangiStok(token, mobilId)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
 
 }
 
