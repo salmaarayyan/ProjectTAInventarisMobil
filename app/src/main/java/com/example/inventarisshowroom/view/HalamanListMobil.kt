@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import com.example.inventarisshowroom.R
 import com.example.inventarisshowroom.modeldata.DataMobil
 
+
+
 @Composable
 fun HalamanListMobil(
     merkId: Int,
@@ -191,7 +193,15 @@ fun MobilCard(
     var showTambahStokDialog by remember { mutableStateOf(false) }
     var showKurangiStokDialog by remember { mutableStateOf(false) }
 
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(defaultElevation = dimensionResource(R.dimen.card_elevation)),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
+    ) {
 
+    }
 
 }
 
