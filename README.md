@@ -95,22 +95,46 @@ Aplikasi Android untuk mengelola inventaris mobil di showroom menggunakan Kotlin
 ## 📊 Technical Documentation
 
 ### Entity Relationship Diagram (ERD)
-![ERD](docs/erd.png)
+![ERD](docs/PAM-ERD.png)
 
 ### Flowchart Aplikasi
-![Flowchart](docs/flowchart.png)
+![Flowchart](docs/PAM-FLOW%20CHART.png)
 
 ### Use Case Diagram
-![Use Case](docs/use-case.png)
+![Use Case](docs/PAM-USE%20CASE.png)
 
-### Activity Diagram
-![Activity Diagram](docs/activity-diagram.png)
+### Activity Diagram Login
+![Activity Diagram](docs/PAM%20-%20AD%20LOGIN.png)
+
+### Activity Diagram Create Merk
+![Activity Diagram](docs/PAM%20-%20AD%20CREATE%20MERK.png)
+
+### Activity Diagram Edit Merk
+![Activity Diagram](docs/PAM%20-%20AD%20EDIT%20MERK.png)
+
+### Activity Diagram Delete Merk
+![Activity Diagram](docs/PAM%20-%20AD%20DELETE%20MERK.png)
+
+### Activity Diagram Create Mobil
+![Activity Diagram](docs/PAM%20-%20AD%20CREATE%20MOBIL.jpg)
+
+### Activity Diagram Edit Mobil
+![Activity Diagram](docs/PAM%20-%20AD%20EDIT%20MOBIL.png)
+
+### Activity Diagram Delete Mobil
+![Activity Diagram](docs/PAM%20-%20AD%20DELETE%20MOBIL.png)
+
+### Activity Diagram Tambah Stok Mobil
+![Activity Diagram](docs/PAM%20-%20AD%20TAMBAH%20STOK.png)
+
+### Activity Diagram Kurangi Stok Mobil
+![Activity Diagram](docs/PAM%20-%20AD%20KURANGI%20STOK.png)
 
 ### Relasi Antar Tabel (RAT)
 ![RAT](docs/rat.png)
 
 ### Software Requirements Specification (SRS)
-Dokumen lengkap: [SRS.pdf](docs/SRS.pdf)
+Dokumen lengkap: [SRS.pdf](docs/082-Salmaa Rifhani Rayyan-SRS.pdf)
 
 ---
 
