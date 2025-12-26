@@ -61,5 +61,12 @@ class DashboardViewModel(
         )
     }
 
+    // Open dialog untuk tambah merk
+    fun openAddDialog() {
+        editMerkId = null
+        merkFormState = MerkFormState()
+        isDialogOpen = true
+    }
+
 }
 
