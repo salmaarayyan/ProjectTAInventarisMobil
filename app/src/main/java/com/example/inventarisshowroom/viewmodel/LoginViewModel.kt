@@ -65,6 +65,19 @@ class LoginViewModel(
         }
     }
 
+    // Validasi form sebelum submit
+    private fun validateForm(): Boolean {
+        val emailError = validateEmail(formState.email)
+        val passwordError = validatePassword(formState.password)
+
+        formState = formState.copy(
+            emailError = emailError,
+            passwordError = passwordError
+        )
+
+        return emailError == null && passwordError == null
+    }
+
 
 }
 
