@@ -5,6 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.inventarisshowroom.repositori.RepositoryMobil
+import com.example.inventarisshowroom.modeldata.MobilRequest
+import com.example.inventarisshowroom.modeldata.MobilUpdateRequest
 
 data class FormMobilState(
     val namaMobil: String = "",
@@ -166,6 +168,40 @@ class FormMobilViewModel(
 
         return namaMobilError == null && tipeError == null && tahunError == null &&
                 hargaError == null && warnaError == null && stokError == null
+    }
+
+    // Save mobil
+    suspend fun saveMobil(token: String): Boolean {
+        if (!validateForm()) return false
+
+        return try {
+            if (isEditMode) {
+                val request = MobilUpdateRequest(
+                    id = editMobilId,
+                    nama_mobil = formState.namaMobil,
+                    merk_id = formState.merkId,
+                    tipe = formState.tipe,
+                    tahun = formState.tahun.toInt(),
+                    harga = formState.harga.toDouble(),
+                    warna = formState.warna
+                )
+                repositoryMobil.updateMobil(token, request)
+            } else {
+                val request = MobilRequest(
+                    nama_mobil = formState.namaMobil,
+                    merk_id = formState.merkId,
+                    tipe = formState.tipe,
+                    tahun = formState.tahun.toInt(),
+                    harga = formState.harga.toDouble(),
+                    warna = formState.warna,
+                    jumlah_stok = formState.stok.toInt()
+                )
+                repositoryMobil.createMobil(token, request)
+            }
+            true
+        } catch (e: Exception) {
+            false
+        }
     }
 
 }
