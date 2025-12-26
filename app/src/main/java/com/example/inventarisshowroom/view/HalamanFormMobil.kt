@@ -118,6 +118,46 @@ fun HalamanFormMobil(
                 )
             )
 
+            // Tipe Dropdown
+            ExposedDropdownMenuBox(
+                expanded = expanded,
+                onExpandedChange = { expanded = !expanded }
+            ) {
+                OutlinedTextField(
+                    value = formState.tipe,
+                    onValueChange = {},
+                    readOnly = true,
+                    label = { Text(stringResource(R.string.pilih_tipe)) },
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                    isError = formState.tipeError != null,
+                    supportingText = {
+                        formState.tipeError?.let {
+                            Text(it, color = MaterialTheme.colorScheme.error)
+                        }
+                    },
+                    modifier = Modifier.menuAnchor().fillMaxWidth(),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        focusedLabelColor = MaterialTheme.colorScheme.primary
+                    )
+                )
+
+                ExposedDropdownMenu(
+                    expanded = expanded,
+                    onDismissRequest = { expanded = false }
+                ) {
+                    tipeMobilList.forEach { tipe ->
+                        DropdownMenuItem(
+                            text = { Text(tipe) },
+                            onClick = {
+                                viewModel.updateTipe(tipe)
+                                expanded = false
+                            }
+                        )
+                    }
+                }
+            }
+
         }
     }
 }
