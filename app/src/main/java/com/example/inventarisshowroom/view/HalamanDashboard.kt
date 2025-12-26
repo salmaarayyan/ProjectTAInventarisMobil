@@ -7,6 +7,13 @@ import com.example.inventarisshowroom.viewmodel.DashboardViewModel
 import com.example.inventarisshowroom.viewmodel.provider.PenyediaViewModel
 import androidx.compose.ui.platform.LocalContext
 import com.example.inventarisshowroom.local.UserPreferences
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
+import androidx.compose.ui.res.stringResource
+import com.example.inventarisshowroom.R
+
+
 
 @Composable
 fun HalamanDashboard(
@@ -24,4 +31,30 @@ fun HalamanDashboard(
     LaunchedEffect(Unit) {
         viewModel.loadMerkList(token)
     }
+
+    Scaffold(
+        topBar = {
+            ShowroomTopAppBar(
+                title = stringResource(R.string.dashboard),
+                canNavigateBack = false,
+                showLogout = true,
+                onLogout = { showLogoutDialog = true }
+            )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { viewModel.openAddDialog() },
+                containerColor = MaterialTheme.colorScheme.primary
+            ) {
+                Icon(
+                    Icons.Default.Add,
+                    contentDescription = stringResource(R.string.tambah_merk),
+                    tint = MaterialTheme.colorScheme.onPrimary
+                )
+            }
+        }
+    ) { paddingValues ->
+
+    }
+
 }
