@@ -15,6 +15,13 @@ object PenyediaViewModel {
                 repositoryAuth = aplikasiShowroom().container.repositoryAuth
             )
         }
+
+        // DashboardViewModel
+        initializer {
+            DashboardViewModel(
+                repositoryMerk = aplikasiShowroom().container.repositoryMerk
+            )
+        }
     }
 }
 
