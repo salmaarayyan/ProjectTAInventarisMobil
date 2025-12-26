@@ -22,6 +22,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.filled.DirectionsCar
 import kotlinx.coroutines.launch
 
+
 @Composable
 fun HalamanDashboard(
     onMerkClick: (Int, String) -> Unit,
@@ -147,7 +148,34 @@ fun HalamanDashboard(
                 }
             }
         }
-
     }
+
+    // Dialog Add/Edit Merk
+    if (viewModel.isDialogOpen) {
+        MerkDialog(
+            title = if (viewModel.editMerkId == null) stringResource(R.string.tambah_merk) else stringResource(R.string.edit_merk),
+            namaMerk = viewModel.merkFormState.namaMerk,
+            error = viewModel.merkFormState.namaMerkError,
+            onNameChange = { viewModel.updateNamaMerk(it) },
+            onDismiss = { viewModel.closeDialog() },
+            onSave = {
+                scope.launch {
+                    val success = viewModel.saveMerk(token)
+                    if (success) {
+                        Toast.makeText(
+                            context,
+                            if (viewModel.editMerkId == null) context.getString(R.string.toast_merk_berhasil_ditambah) else context.getString(R.string.toast_merk_berhasil_diubah),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        viewModel.closeDialog()
+                        viewModel.loadMerkList(token)
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.toast_merk_sudah_ada), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        )
+    }
+
 
 }
