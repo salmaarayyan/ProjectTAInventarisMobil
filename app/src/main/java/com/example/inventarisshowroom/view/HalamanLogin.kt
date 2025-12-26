@@ -16,7 +16,7 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.Image
-
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun HalamanLogin(
@@ -74,11 +74,25 @@ fun HalamanLogin(
                     contentDescription = null,
                     modifier = Modifier.size(120.dp)
                 )
+                Spacer(modifier = Modifier.height(16.dp))
 
+                // Title
+                Text(
+                    text = stringResource(R.string.login),
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = MaterialTheme.colorScheme.primary
+                )
+
+                // Subtitle
+                Text(
+                    text = stringResource(R.string.please_sign_in),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(32.dp))
 
             }
-
         }
     }
-
 }
