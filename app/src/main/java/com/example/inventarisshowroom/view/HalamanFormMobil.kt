@@ -223,6 +223,29 @@ fun HalamanFormMobil(
                 )
             )
 
+            // Stok (hanya untuk mode tambah)
+            if (!isEditMode) {
+                OutlinedTextField(
+                    value = formState.stok,
+                    onValueChange = { viewModel.updateStok(it) },
+                    label = { Text(stringResource(R.string.stok_awal)) },
+                    placeholder = { Text(stringResource(R.string.stok_hint)) },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    isError = formState.stokError != null,
+                    supportingText = {
+                        formState.stokError?.let {
+                            Text(it, color = MaterialTheme.colorScheme.error)
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        focusedLabelColor = MaterialTheme.colorScheme.primary
+                    )
+                )
+            }
+
         }
     }
 }
