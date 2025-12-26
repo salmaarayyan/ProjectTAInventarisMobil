@@ -71,4 +71,62 @@ class FormMobilViewModel(
         )
     }
 
+    // Update fields
+    fun updateNamaMobil(value: String) {
+        formState = formState.copy(
+            namaMobil = value,
+            namaMobilError = if (value.isEmpty()) "Nama mobil harus diisi" else null
+        )
+    }
+
+    fun updateTipe(value: String) {
+        formState = formState.copy(
+            tipe = value,
+            tipeError = if (value.isEmpty()) "Tipe mobil harus dipilih" else null
+        )
+    }
+
+    fun updateTahun(value: String) {
+        formState = formState.copy(
+            tahun = value,
+            tahunError = when {
+                value.isEmpty() -> "Tahun harus diisi"
+                value.toIntOrNull() == null -> "Tahun harus berupa angka"
+                value.toInt() < 2000 -> "Tahun minimal 2000"
+                else -> null
+            }
+        )
+    }
+
+    fun updateHarga(value: String) {
+        formState = formState.copy(
+            harga = value,
+            hargaError = when {
+                value.isEmpty() -> "Harga harus diisi"
+                value.toDoubleOrNull() == null -> "Harga harus berupa angka"
+                value.toDouble() <= 0 -> "Harga harus lebih dari 0"
+                else -> null
+            }
+        )
+    }
+
+    fun updateWarna(value: String) {
+        formState = formState.copy(
+            warna = value,
+            warnaError = if (value.isEmpty()) "Warna harus diisi" else null
+        )
+    }
+
+    fun updateStok(value: String) {
+        formState = formState.copy(
+            stok = value,
+            stokError = when {
+                value.isEmpty() -> "Stok harus diisi"
+                value.toIntOrNull() == null -> "Stok harus berupa angka"
+                value.toInt() < 0 -> "Stok tidak boleh negatif"
+                else -> null
+            }
+        )
+    }
+
 }
