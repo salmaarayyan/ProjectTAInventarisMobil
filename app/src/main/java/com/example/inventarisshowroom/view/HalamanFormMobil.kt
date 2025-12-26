@@ -104,6 +104,20 @@ fun HalamanFormMobil(
                 )
             )
 
+            // Merk (Read-only)
+            OutlinedTextField(
+                value = formState.merkName,
+                onValueChange = {},
+                label = { Text(stringResource(R.string.merk)) },
+                modifier = Modifier.fillMaxWidth(),
+                enabled = false,
+                colors = OutlinedTextFieldDefaults.colors(
+                    disabledTextColor = MaterialTheme.colorScheme.onSurface,
+                    disabledBorderColor = MaterialTheme.colorScheme.outline,
+                    disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            )
+
         }
     }
 }
