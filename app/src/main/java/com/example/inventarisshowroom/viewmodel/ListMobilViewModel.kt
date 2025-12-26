@@ -50,5 +50,16 @@ class ListMobilViewModel(
         }
     }
 
+    suspend fun tambahStok(token: String, mobilId: Int): Boolean {
+        return try {
+            repositoryMobil.tambahStok(token, mobilId)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+
+
 }
 
