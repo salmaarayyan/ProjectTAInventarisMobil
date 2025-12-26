@@ -16,7 +16,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import com.example.inventarisshowroom.viewmodel.DashboardUiState
-
+import android.widget.Toast
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.filled.DirectionsCar
+import kotlinx.coroutines.launch
 
 @Composable
 fun HalamanDashboard(
@@ -89,6 +93,60 @@ fun HalamanDashboard(
                     }
                 }
             }
+
+            is DashboardUiState.Success -> {
+                if (state.merkList.isEmpty()) {
+                    Box(
+                        modifier = Modifier.fillMaxSize().padding(paddingValues),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(
+                                imageVector = Icons.Default.DirectionsCar,
+                                contentDescription = null,
+                                modifier = Modifier.size(64.dp),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                text = stringResource(R.string.belum_ada_merk),
+                                style = MaterialTheme.typography.titleLarge
+                            )
+                            Text(
+                                text = stringResource(R.string.tambah_merk_baru),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                } else {
+                    LazyColumn(
+                        contentPadding = paddingValues,
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        items(state.merkList) { merk ->
+                            MerkCard(
+                                merk = merk,
+                                onClick = { onMerkClick(merk.id, merk.nama_merk) },
+                                onEdit = { viewModel.openEditDialog(merk.id, merk.nama_merk) },
+                                onDelete = {
+                                    scope.launch {
+                                        val success = viewModel.deleteMerk(token, merk.id)
+                                        if (success) {
+                                            Toast.makeText(context, context.getString(R.string.toast_merk_berhasil_dihapus), Toast.LENGTH_SHORT).show()
+                                            viewModel.loadMerkList(token)
+                                        } else {
+                                            Toast.makeText(context, context.getString(R.string.toast_gagal_merk), Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+                                }
+                            )
+                        }
+                    }
+                }
+            }
+        }
 
     }
 
