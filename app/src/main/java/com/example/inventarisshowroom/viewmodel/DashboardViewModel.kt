@@ -101,5 +101,15 @@ class DashboardViewModel(
         }
     }
 
+    // Delete merk
+    suspend fun deleteMerk(token: String, id: Int): Boolean {
+        return try {
+            repositoryMerk.deleteMerk(token, id)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
 }
 
