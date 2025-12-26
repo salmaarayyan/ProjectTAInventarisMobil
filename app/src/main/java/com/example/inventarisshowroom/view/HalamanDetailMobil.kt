@@ -7,6 +7,9 @@ import com.example.inventarisshowroom.viewmodel.DetailMobilViewModel
 import com.example.inventarisshowroom.viewmodel.provider.PenyediaViewModel
 import androidx.compose.ui.platform.LocalContext
 import com.example.inventarisshowroom.local.UserPreferences
+import androidx.compose.material3.*
+import androidx.compose.ui.res.stringResource
+import com.example.inventarisshowroom.R
 
 @Composable
 fun HalamanDetailMobil(
@@ -22,6 +25,19 @@ fun HalamanDetailMobil(
 
     LaunchedEffect(mobilId) {
         viewModel.loadDetailMobil(token, mobilId)
+    }
+
+    Scaffold(
+        topBar = {
+            ShowroomTopAppBar(
+                title = stringResource(R.string.detail_mobil),
+                canNavigateBack = true,
+                onNavigateBack = onBack
+            )
+        }
+    ) { paddingValues ->
+
+
     }
 }
 
