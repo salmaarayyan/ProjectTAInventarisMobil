@@ -1,9 +1,11 @@
 package com.example.inventarisshowroom.viewmodel.provider
 
-
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.inventarisshowroom.viewmodel.*
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.CreationExtras
+import com.example.inventarisshowroom.ShowroomApplication
 
 object PenyediaViewModel {
 
@@ -45,4 +47,7 @@ object PenyediaViewModel {
         }
     }
 }
+
+fun CreationExtras.aplikasiShowroom(): ShowroomApplication =
+    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as ShowroomApplication)
 
