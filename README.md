@@ -81,7 +81,7 @@ ProjectTAInventarisMobil/
 
 |                          Daftar Mobil Sesuai Merk                           | 
 |:---------------------------------------------------------------------------:|
-| <img src="docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png" width="300"> |
+| <img src="docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png" width="250"> |
 
 ### 3. Mengelola Data Mobil
 
@@ -124,7 +124,7 @@ ProjectTAInventarisMobil/
 
 |                          Detail Mobil                           | 
 |:---------------------------------------------------------------:|
-| <img src="docs/screenshots/PAM-DETAIL%20MOBIL.png" width="300"> |
+| <img src="docs/screenshots/PAM-DETAIL%20MOBIL.png" width="250"> |
 
 ### 4. Update Stok Mobil
 
