@@ -35,24 +35,24 @@ class UserPreferences(context: Context) {
     }
 
     // Get user ID
-    fun getUserId(): Int {
-        return sharedPreferences.getInt(KEY_USER_ID, 0)
-    }
+    //fun getUserId(): Int {
+    //    return sharedPreferences.getInt(KEY_USER_ID, 0)
+    //}
 
     // Get user name
-    fun getUserName(): String? {
-        return sharedPreferences.getString(KEY_USER_NAME, null)
-    }
+    //fun getUserName(): String? {
+    //    return sharedPreferences.getString(KEY_USER_NAME, null)
+    //}
 
     // Get user email
-    fun getUserEmail(): String? {
-        return sharedPreferences.getString(KEY_USER_EMAIL, null)
-    }
+    //fun getUserEmail(): String? {
+    //    return sharedPreferences.getString(KEY_USER_EMAIL, null)
+    //}
 
     // Check if user is logged in
-    fun isLoggedIn(): Boolean {
-        return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
-    }
+    //fun isLoggedIn(): Boolean {
+    //    return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
+    //}
 
     // Clear data saat logout
     fun clearUserData() {
