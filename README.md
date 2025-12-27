@@ -152,43 +152,43 @@ ProjectTAInventarisMobil/
 ## 📊 Technical Documentation
 
 ### Entity Relationship Diagram (ERD)
-![ERD](docs/PAM-ERD.png)
+<img src="docs/PAM-ERD.png" width="600">
 
 ### Flowchart Aplikasi
-![Flowchart](docs/PAM-FLOW%20CHART.png)
+<img src="docs/PAM-FLOW%20CHART.png" width="500">
 
 ### Use Case Diagram
-![Use Case](docs/PAM-USE%20CASE.png)
+<img src="docs/PAM-USE%20CASE.png" width="600">
 
 ### Activity Diagram Login
-![Activity Diagram](docs/PAM%20-%20AD%20LOGIN.png)
+<img src="docs/PAM%20-%20AD%20LOGIN.png" width="500">
 
 ### Activity Diagram Create Merk
-![Activity Diagram](docs/PAM%20-%20AD%20CREATE%20MERK.png)
+<img src="docs/PAM%20-%20AD%20CREATE%20MERK.png" width="500">
 
 ### Activity Diagram Edit Merk
-![Activity Diagram](docs/PAM%20-%20AD%20EDIT%20MERK.png)
+<img src="docs/PAM%20-%20AD%20EDIT%20MERK.png" width="500">
 
 ### Activity Diagram Delete Merk
-![Activity Diagram](docs/PAM%20-%20AD%20DELETE%20MERK.png)
+<img src="docs/PAM%20-%20AD%20DELETE%20MERK.png" width="500">
 
 ### Activity Diagram Create Mobil
-![Activity Diagram](docs/PAM%20-%20AD%20CREATE%20MOBIL.jpg)
+<img src="docs/PAM%20-%20AD%20CREATE%20MOBIL.jpg" width="500">
 
 ### Activity Diagram Edit Mobil
-![Activity Diagram](docs/PAM%20-%20AD%20EDIT%20MOBIL.png)
+<img src="docs/PAM%20-%20AD%20EDIT%20MOBIL.png" width="500">
 
 ### Activity Diagram Delete Mobil
-![Activity Diagram](docs/PAM%20-%20AD%20DELETE%20MOBIL.png)
+<img src="docs/PAM%20-%20AD%20DELETE%20MOBIL.png" width="500">
 
 ### Activity Diagram Tambah Stok Mobil
-![Activity Diagram](docs/PAM%20-%20AD%20TAMBAH%20STOK.png)
+<img src="docs/PAM%20-%20AD%20TAMBAH%20STOK.png" width="500">
 
 ### Activity Diagram Kurangi Stok Mobil
-![Activity Diagram](docs/PAM%20-%20AD%20KURANGI%20STOK.png)
+<img src="docs/PAM%20-%20AD%20KURANGI%20STOK.png" width="500">
 
 ### Relasi Antar Tabel (RAT)
-![RAT](docs/PAM-RAT.png)
+<img src="docs/PAM-RAT.png" width="600">
 
 ---
 
@@ -317,7 +317,7 @@ updated_at: 2024-12-25 15:30:00
 - Start Apache & MySQL
 - Buka browser: http://localhost/phpmyadmin
 - Create database: `showroom_db`
-- Import SQL file (jika ada) atau buat tabel manual sesuai kamus data
+- Import SQL file (buka branch `backend`) atau buat tabel manual sesuai kamus data
 
 **3. Konfigurasi Backend:**
 - Edit `config/database.php`:
