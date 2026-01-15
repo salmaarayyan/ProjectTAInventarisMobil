@@ -107,7 +107,8 @@ fun HalamanLogin(
                 OutlinedTextField(
                     value = formState.email,
                     onValueChange = { viewModel.updateEmail(it) },
-                    label = { Text(stringResource(R.string.masukkan_email)) },
+                    label = { Text(stringResource(R.string.email)) },
+                    placeholder = { Text(stringResource(R.string.masukkan_email)) },
                     leadingIcon = {
                         Icon(
                             Icons.Default.Email,
@@ -136,7 +137,8 @@ fun HalamanLogin(
                 OutlinedTextField(
                     value = formState.password,
                     onValueChange = { viewModel.updatePassword(it) },
-                    label = { Text(stringResource(R.string.masukkan_password)) },
+                    label = { Text(stringResource(R.string.password)) },
+                    placeholder = { Text(stringResource(R.string.masukkan_password)) },
                     leadingIcon = {
                         Icon(
                             Icons.Default.Lock,
