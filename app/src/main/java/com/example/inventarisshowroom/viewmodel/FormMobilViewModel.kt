@@ -77,7 +77,11 @@ class FormMobilViewModel(
     fun updateNamaMobil(value: String) {
         formState = formState.copy(
             namaMobil = value,
-            namaMobilError = if (value.isEmpty()) "Nama mobil harus diisi" else null
+            namaMobilError = when {
+                value.isEmpty() -> "Nama mobil harus diisi"
+                !value.first().isLetter() -> "Nama mobil harus diawali huruf"
+                else -> null
+            }
         )
     }
 
@@ -94,7 +98,7 @@ class FormMobilViewModel(
             tahunError = when {
                 value.isEmpty() -> "Tahun harus diisi"
                 value.toIntOrNull() == null -> "Tahun harus berupa angka"
-                value.toInt() < 2000 -> "Tahun minimal 2000"
+                value.toInt() < 2000 -> "Tahun min. 2000"
                 else -> null
             }
         )
@@ -133,12 +137,16 @@ class FormMobilViewModel(
 
     // Validasi form
     private fun validateForm(): Boolean {
-        val namaMobilError = if (formState.namaMobil.isEmpty()) "Nama mobil harus diisi" else null
+        val namaMobilError = when {
+            formState.namaMobil.isEmpty() -> "Nama mobil harus diisi"
+            !formState.namaMobil.first().isLetter() -> "Nama mobil harus diawali huruf"
+            else -> null
+        }
         val tipeError = if (formState.tipe.isEmpty()) "Tipe mobil harus dipilih" else null
         val tahunError = when {
             formState.tahun.isEmpty() -> "Tahun harus diisi"
             formState.tahun.toIntOrNull() == null -> "Tahun harus berupa angka"
-            formState.tahun.toInt() < 2000 -> "Tahun minimal 2000"
+            formState.tahun.toInt() < 2000 -> "Tahun min. 2000"
             else -> null
         }
         val hargaError = when {
