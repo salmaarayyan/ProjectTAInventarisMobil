@@ -80,6 +80,20 @@ fun HalamanFormMobil(
             )
         }
     ) { paddingValues ->
+        // Check if form is valid (all required fields filled AND no validation errors)
+        val isFormValid = formState.namaMobil.isNotEmpty() &&
+                formState.tipe.isNotEmpty() &&
+                formState.tahun.isNotEmpty() &&
+                formState.harga.isNotEmpty() &&
+                formState.warna.isNotEmpty() &&
+                (isEditMode || formState.stok.isNotEmpty()) &&
+                formState.namaMobilError == null &&
+                formState.tipeError == null &&
+                formState.tahunError == null &&
+                formState.hargaError == null &&
+                formState.warnaError == null &&
+                (isEditMode || formState.stokError == null)
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -88,163 +102,179 @@ fun HalamanFormMobil(
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_large))
         ) {
-            // Nama Mobil
-            OutlinedTextField(
-                value = formState.namaMobil,
-                onValueChange = { viewModel.updateNamaMobil(it) },
-                label = { Text(stringResource(R.string.nama_mobil)) },
-                placeholder = { Text(stringResource(R.string.nama_mobil_hint)) },
-                isError = formState.namaMobilError != null,
-                supportingText = {
-                    formState.namaMobilError?.let {
-                        Text(it, color = MaterialTheme.colorScheme.error)
-                    }
-                },
+            // Card wrapper for form fields
+            Card(
                 modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = MaterialTheme.colorScheme.primary,
-                    focusedLabelColor = MaterialTheme.colorScheme.primary
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = dimensionResource(R.dimen.card_elevation)
+                ),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface
                 )
-            )
-
-            // Merk (Read-only)
-            OutlinedTextField(
-                value = formState.merkName,
-                onValueChange = {},
-                label = { Text(stringResource(R.string.merk)) },
-                modifier = Modifier.fillMaxWidth(),
-                enabled = false,
-                colors = OutlinedTextFieldDefaults.colors(
-                    disabledTextColor = MaterialTheme.colorScheme.onSurface,
-                    disabledBorderColor = MaterialTheme.colorScheme.outline,
-                    disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            )
-
-            // Tipe Dropdown
-            ExposedDropdownMenuBox(
-                expanded = expanded,
-                onExpandedChange = { expanded = !expanded }
             ) {
-                OutlinedTextField(
-                    value = formState.tipe,
-                    onValueChange = {},
-                    readOnly = true,
-                    label = { Text(stringResource(R.string.pilih_tipe)) },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                    isError = formState.tipeError != null,
-                    supportingText = {
-                        formState.tipeError?.let {
-                            Text(it, color = MaterialTheme.colorScheme.error)
-                        }
-                    },
-                    modifier = Modifier.menuAnchor().fillMaxWidth(),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = MaterialTheme.colorScheme.primary,
-                        focusedLabelColor = MaterialTheme.colorScheme.primary
-                    )
-                )
-
-                ExposedDropdownMenu(
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false }
+                Column(
+                    modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
+                    verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.spacing_large))
                 ) {
-                    tipeMobilList.forEach { tipe ->
-                        DropdownMenuItem(
-                            text = { Text(tipe) },
-                            onClick = {
-                                viewModel.updateTipe(tipe)
-                                expanded = false
+                    // Nama Mobil
+                    OutlinedTextField(
+                        value = formState.namaMobil,
+                        onValueChange = { viewModel.updateNamaMobil(it) },
+                        label = { Text(stringResource(R.string.nama_mobil)) },
+                        placeholder = { Text(stringResource(R.string.nama_mobil_hint)) },
+                        isError = formState.namaMobilError != null,
+                        supportingText = {
+                            formState.namaMobilError?.let {
+                                Text(it, color = MaterialTheme.colorScheme.error)
                             }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = MaterialTheme.colorScheme.primary,
+                            focusedLabelColor = MaterialTheme.colorScheme.primary
+                        )
+                    )
+
+                    // Merk (Read-only)
+                    OutlinedTextField(
+                        value = formState.merkName,
+                        onValueChange = {},
+                        label = { Text(stringResource(R.string.merk)) },
+                        modifier = Modifier.fillMaxWidth(),
+                        enabled = false,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            disabledTextColor = MaterialTheme.colorScheme.onSurface,
+                            disabledBorderColor = MaterialTheme.colorScheme.outline,
+                            disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    )
+
+                    // Tipe Dropdown
+                    ExposedDropdownMenuBox(
+                        expanded = expanded,
+                        onExpandedChange = { expanded = !expanded }
+                    ) {
+                        OutlinedTextField(
+                            value = formState.tipe,
+                            onValueChange = {},
+                            readOnly = true,
+                            label = { Text(stringResource(R.string.pilih_tipe)) },
+                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                            isError = formState.tipeError != null,
+                            supportingText = {
+                                formState.tipeError?.let {
+                                    Text(it, color = MaterialTheme.colorScheme.error)
+                                }
+                            },
+                            modifier = Modifier.menuAnchor().fillMaxWidth(),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = MaterialTheme.colorScheme.primary,
+                                focusedLabelColor = MaterialTheme.colorScheme.primary
+                            )
+                        )
+
+                        ExposedDropdownMenu(
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false }
+                        ) {
+                            tipeMobilList.forEach { tipe ->
+                                DropdownMenuItem(
+                                    text = { Text(tipe) },
+                                    onClick = {
+                                        viewModel.updateTipe(tipe)
+                                        expanded = false
+                                    }
+                                )
+                            }
+                        }
+                    }
+
+                    // Tahun
+                    OutlinedTextField(
+                        value = formState.tahun,
+                        onValueChange = { viewModel.updateTahun(it) },
+                        label = { Text(stringResource(R.string.tahun)) },
+                        placeholder = { Text(stringResource(R.string.tahun_hint)) },
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        isError = formState.tahunError != null,
+                        supportingText = {
+                            formState.tahunError?.let {
+                                Text(it, color = MaterialTheme.colorScheme.error)
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = MaterialTheme.colorScheme.primary,
+                            focusedLabelColor = MaterialTheme.colorScheme.primary
+                        )
+                    )
+
+                    // Harga
+                    OutlinedTextField(
+                        value = formState.harga,
+                        onValueChange = { viewModel.updateHarga(it) },
+                        label = { Text(stringResource(R.string.harga)) },
+                        placeholder = { Text(stringResource(R.string.harga_hint)) },
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        isError = formState.hargaError != null,
+                        supportingText = {
+                            formState.hargaError?.let {
+                                Text(it, color = MaterialTheme.colorScheme.error)
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = MaterialTheme.colorScheme.primary,
+                            focusedLabelColor = MaterialTheme.colorScheme.primary
+                        )
+                    )
+
+                    // Warna
+                    OutlinedTextField(
+                        value = formState.warna,
+                        onValueChange = { viewModel.updateWarna(it) },
+                        label = { Text(stringResource(R.string.warna)) },
+                        placeholder = { Text(stringResource(R.string.warna_hint)) },
+                        isError = formState.warnaError != null,
+                        supportingText = {
+                            formState.warnaError?.let {
+                                Text(it, color = MaterialTheme.colorScheme.error)
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = MaterialTheme.colorScheme.primary,
+                            focusedLabelColor = MaterialTheme.colorScheme.primary
+                        )
+                    )
+
+                    // Stok (hanya untuk mode tambah)
+                    if (!isEditMode) {
+                        OutlinedTextField(
+                            value = formState.stok,
+                            onValueChange = { viewModel.updateStok(it) },
+                            label = { Text(stringResource(R.string.stok_awal)) },
+                            placeholder = { Text(stringResource(R.string.stok_hint)) },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            isError = formState.stokError != null,
+                            supportingText = {
+                                formState.stokError?.let {
+                                    Text(it, color = MaterialTheme.colorScheme.error)
+                                }
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            singleLine = true,
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = MaterialTheme.colorScheme.primary,
+                                focusedLabelColor = MaterialTheme.colorScheme.primary
+                            )
                         )
                     }
                 }
-            }
-
-            // Tahun
-            OutlinedTextField(
-                value = formState.tahun,
-                onValueChange = { viewModel.updateTahun(it) },
-                label = { Text(stringResource(R.string.tahun)) },
-                placeholder = { Text(stringResource(R.string.tahun_hint)) },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                isError = formState.tahunError != null,
-                supportingText = {
-                    formState.tahunError?.let {
-                        Text(it, color = MaterialTheme.colorScheme.error)
-                    }
-                },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = MaterialTheme.colorScheme.primary,
-                    focusedLabelColor = MaterialTheme.colorScheme.primary
-                )
-            )
-
-            // Harga
-            OutlinedTextField(
-                value = formState.harga,
-                onValueChange = { viewModel.updateHarga(it) },
-                label = { Text(stringResource(R.string.harga)) },
-                placeholder = { Text(stringResource(R.string.harga_hint)) },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                isError = formState.hargaError != null,
-                supportingText = {
-                    formState.hargaError?.let {
-                        Text(it, color = MaterialTheme.colorScheme.error)
-                    }
-                },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = MaterialTheme.colorScheme.primary,
-                    focusedLabelColor = MaterialTheme.colorScheme.primary
-                )
-            )
-
-            // Warna
-            OutlinedTextField(
-                value = formState.warna,
-                onValueChange = { viewModel.updateWarna(it) },
-                label = { Text(stringResource(R.string.warna)) },
-                placeholder = { Text(stringResource(R.string.warna_hint)) },
-                isError = formState.warnaError != null,
-                supportingText = {
-                    formState.warnaError?.let {
-                        Text(it, color = MaterialTheme.colorScheme.error)
-                    }
-                },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = MaterialTheme.colorScheme.primary,
-                    focusedLabelColor = MaterialTheme.colorScheme.primary
-                )
-            )
-
-            // Stok (hanya untuk mode tambah)
-            if (!isEditMode) {
-                OutlinedTextField(
-                    value = formState.stok,
-                    onValueChange = { viewModel.updateStok(it) },
-                    label = { Text(stringResource(R.string.stok_awal)) },
-                    placeholder = { Text(stringResource(R.string.stok_hint)) },
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    isError = formState.stokError != null,
-                    supportingText = {
-                        formState.stokError?.let {
-                            Text(it, color = MaterialTheme.colorScheme.error)
-                        }
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true,
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = MaterialTheme.colorScheme.primary,
-                        focusedLabelColor = MaterialTheme.colorScheme.primary
-                    )
-                )
             }
 
             Spacer(modifier = Modifier.height(dimensionResource(R.dimen.spacing_small)))
@@ -257,7 +287,7 @@ fun HalamanFormMobil(
                 // Cancel Button
                 OutlinedButton(
                     onClick = onBack,
-                    modifier = Modifier.weight(0.5f),
+                    modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.outlinedButtonColors(
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -283,6 +313,7 @@ fun HalamanFormMobil(
                         }
                     },
                     modifier = Modifier.weight(1f),
+                    enabled = isFormValid,
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     )
