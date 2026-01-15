@@ -91,6 +91,8 @@ fun HalamanLogin(
                     style = MaterialTheme.typography.headlineLarge,
                     color = MaterialTheme.colorScheme.primary
                 )
+                Spacer(modifier = Modifier.height(8.dp))
+
 
                 // Subtitle
                 Text(
@@ -105,7 +107,7 @@ fun HalamanLogin(
                 OutlinedTextField(
                     value = formState.email,
                     onValueChange = { viewModel.updateEmail(it) },
-                    label = { Text(stringResource(R.string.email)) },
+                    label = { Text(stringResource(R.string.masukkan_email)) },
                     leadingIcon = {
                         Icon(
                             Icons.Default.Email,
@@ -134,7 +136,7 @@ fun HalamanLogin(
                 OutlinedTextField(
                     value = formState.password,
                     onValueChange = { viewModel.updatePassword(it) },
-                    label = { Text(stringResource(R.string.password)) },
+                    label = { Text(stringResource(R.string.masukkan_password)) },
                     leadingIcon = {
                         Icon(
                             Icons.Default.Lock,
@@ -178,7 +180,9 @@ fun HalamanLogin(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     ),
-                    enabled = loginUiState !is LoginUiState.Loading
+                    enabled = loginUiState !is LoginUiState.Loading &&
+                            formState.email.isNotBlank() &&
+                            formState.password.isNotBlank()
                 ) {
                     if (loginUiState is LoginUiState.Loading) {
                         CircularProgressIndicator(
