@@ -79,7 +79,7 @@ fun HalamanLogin(
             ) {
                 // Logo
                 Image(
-                    painter = painterResource(id = R.drawable.login),
+                    painter = painterResource(id = R.drawable.logologin),
                     contentDescription = null,
                     modifier = Modifier.size(120.dp)
                 )
