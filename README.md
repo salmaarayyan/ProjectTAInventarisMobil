@@ -33,18 +33,18 @@ ProjectTAInventarisMobil/
 3. Klik tombol "LOGIN"
 4. Jika berhasil, akan masuk ke Dashboard
 
-|                     Sebelum Login                      |                           Setelah Login                           |
-|:------------------------------------------------------:|:-----------------------------------------------------------------:|
-| <img src="docs/screenshots/PAM-LOGIN.png" width="250"> | <img src="docs/screenshots/PAM-LOGIN%20BERHASIL.png" width="250"> |
+|                     Sebelum Login                      |                         Setelah Login                          |
+|:------------------------------------------------------:|:--------------------------------------------------------------:|
+| <img src="docs/screenshots/PAM-LOGIN.png" width="250"> | <img src="docs/screenshots/PAM-LOGINBERHASIL.png" width="250"> |
 
 **Logout:**
 1. Di halaman Dashboard, klik icon logout (atas kanan)
 2. Konfirmasi logout
 3. Kembali ke halaman Login
 
-|           Validasi Logout            |                 Setelah Logout                  |
-|:------------------------------------:|:-----------------------------------------------:|
-| <img src="docs/screenshots/PAM-LOGOUT.png" width="250"> | <img src="docs/screenshots/PAM-LOGOUT%20BERHASIL.png" width="250"> |
+|           Validasi Logout            |                         Setelah Logout                          |
+|:------------------------------------:|:---------------------------------------------------------------:|
+| <img src="docs/screenshots/PAM-LOGOUT.png" width="250"> | <img src="docs/screenshots/PAM-LOGOUTBERHASIL.png" width="250"> |
 
 ### 2. Mengelola Merk Mobil
 
@@ -53,18 +53,18 @@ ProjectTAInventarisMobil/
 2. Masukkan nama merk
 3. Klik "SIMPAN"
 
-|           Sebelum Penambahan            |             Pop-up Tambah Merk              |                   Setelah Penambahan                   |
-|:---------------------------------------:|:-------------------------------------------:|:------------------------------------------------------:|
-| ![](docs/screenshots/PAM-DASHBOARD.png) | ![](docs/screenshots/PAM-TAMBAH%20MERK.png) | ![](docs/screenshots/PAM-TAMBAH%20MERK%20BERHASIL.png) |
+|           Sebelum Penambahan            |            Pop-up Tambah Merk            |                Setelah Penambahan                |
+|:---------------------------------------:|:----------------------------------------:|:------------------------------------------------:|
+| ![](docs/screenshots/PAM-DASHBOARD.png) | ![](docs/screenshots/PAM-TAMBAHMERK.png) | ![](docs/screenshots/PAM-TAMBAHMERKBERHASIL.png) |
 
 **Edit Merk:**
 1. Di card merk, klik icon pensil
 2. Ubah nama merk
 3. Klik "SIMPAN"
 
-|            Sebelum Perubahan            |             Pop-up Edit Merk              |                  Setelah Perubahan                   |
-|:---------------------------------------:|:-----------------------------------------:|:----------------------------------------------------:|
-| ![](docs/screenshots/PAM-TAMBAH%20MERK%20BERHASIL.png) | ![](docs/screenshots/PAM-EDIT%20MERK.png) | ![](docs/screenshots/PAM-EDIT%20MERK%20BERHASIL.png) |
+|                Sebelum Perubahan                 |            Pop-up Edit Merk            |               Setelah Perubahan                |
+|:------------------------------------------------:|:--------------------------------------:|:----------------------------------------------:|
+| ![](docs/screenshots/PAM-TAMBAHMERKBERHASIL.png) | ![](docs/screenshots/PAM-EDITMERK.png) | ![](docs/screenshots/PAM-EDITMERKBERHASIL.png) |
 
 **Hapus Merk:**
 1. Di card merk, klik icon sampah
@@ -73,15 +73,15 @@ ProjectTAInventarisMobil/
 
 |                 Sebelum Penghapusan                  |               Validasi Delete               |                  Setelah Penghapusan                   |
 |:----------------------------------------------------:|:-------------------------------------------:|:------------------------------------------------------:|
-| ![](docs/screenshots/PAM-EDIT%20MERK%20BERHASIL.png) | ![](docs/screenshots/PAM-DELETE%20MERK.png) | ![](docs/screenshots/PAM-DELETE%20MERK%20BERHASIL.png) |
+| ![](docs/screenshots/PAM-EDITMERKBERHASIL.png) | ![](docs/screenshots/PAM-DELETEMERK.png) | ![](docs/screenshots/PAM-DELETEMERKBERHASIL.png) |
 
 **Lihat Mobil per Merk:**
 1. Klik card merk
 2. Tampil daftar mobil merk tersebut
 
-|                          Daftar Mobil Sesuai Merk                           | 
-|:---------------------------------------------------------------------------:|
-| <img src="docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png" width="250"> |
+|                  Daftar Mobil Sesuai Merk                  | 
+|:----------------------------------------------------------:|
+| <img src="docs/screenshots/PAM-LISTMOBIL.png" width="250"> |
 
 ### 3. Mengelola Data Mobil
 
@@ -96,9 +96,9 @@ ProjectTAInventarisMobil/
     - Stok Awal
 3. Klik "SIMPAN"
 
-|                    Sebelum Penambahan                    |              Form Tambah Mobil               |                   Setelah Penambahan                    |
-|:--------------------------------------------------------:|:--------------------------------------------:|:-------------------------------------------------------:|
-| ![](docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png) | ![](docs/screenshots/PAM-TAMBAH%20MOBIL.png) | ![](docs/screenshots/PAM-TAMBAH%20MOBIL%20BERHASIL.png) |
+|           Sebelum Penambahan            |             Form Tambah Mobil             |                   Setelah Penambahan                    |
+|:---------------------------------------:|:-----------------------------------------:|:-------------------------------------------------------:|
+| ![](docs/screenshots/PAM-LISTMOBIL.png) | ![](docs/screenshots/PAM-TAMBAHMOBIL.png) | ![](docs/screenshots/PAM-TAMBAHMOBILBERHASIL.png) |
 
 **Edit Mobil:**
 1. Di card mobil, klik tombol "DETAIL"
@@ -106,25 +106,25 @@ ProjectTAInventarisMobil/
 3. Ubah data yang diperlukan
 4. Klik "SIMPAN"
 
-|              Sebelum Perubahan               |              Form Edit Mobil               |                   Setelah Perubahan                   |
-|:--------------------------------------------:|:------------------------------------------:|:-----------------------------------------------------:|
-| ![](docs/screenshots/PAM-DETAIL%20MOBIL.png) | ![](docs/screenshots/PAM-EDIT%20MOBIL.png) | ![](docs/screenshots/PAM-EDIT%20MOBIL%20BERHASIL.png) |
+|             Sebelum Perubahan             |             Form Edit Mobil             |                Setelah Perubahan                |
+|:-----------------------------------------:|:---------------------------------------:|:-----------------------------------------------:|
+| ![](docs/screenshots/PAM-DETAILMOBIL.png) | ![](docs/screenshots/PAM-EDITMOBIL.png) | ![](docs/screenshots/PAM-EDITMOBILBERHASIL.png) |
 
 **Hapus Mobil:**
 1. Di card mobil, klik tombol "HAPUS"
 2. Konfirmasi penghapusan
 
-|            Sebelum Penghapusan             |               Validasi Delete                |                   Setelah Penghapusan                   |
-|:------------------------------------------:|:--------------------------------------------:|:-------------------------------------------------------:|
-| ![](docs/screenshots/PAM-LIST%20MOBIL.png) | ![](docs/screenshots/PAM-DELETE%20MOBIL.png) | ![](docs/screenshots/PAM-DELETE%20MOBIL%20BERHASIL.png) |
+|               Sebelum Penghapusan                |              Validasi Delete              |                Setelah Penghapusan                |
+|:------------------------------------------------:|:-----------------------------------------:|:-------------------------------------------------:|
+| ![](docs/screenshots/PAM-SEBELUMDELETEMOBIL.png) | ![](docs/screenshots/PAM-DELETEMOBIL.png) | ![](docs/screenshots/PAM-DELETEMOBILBERHASIL.png) |
 
 **Lihat Detail Mobil:**
 1. Di card mobil, klik tombol "DETAIL"
 2. Tampil informasi lengkap mobil
 
-|                          Detail Mobil                           | 
-|:---------------------------------------------------------------:|
-| <img src="docs/screenshots/PAM-DETAIL%20MOBIL.png" width="250"> |
+|                         Detail Mobil                         | 
+|:------------------------------------------------------------:|
+| <img src="docs/screenshots/PAM-DETAILMOBIL.png" width="250"> |
 
 ### 4. Update Stok Mobil
 
@@ -133,9 +133,9 @@ ProjectTAInventarisMobil/
 2. Konfirmasi penambahan
 3. Stok bertambah 1
 
-|                    Sebelum Penambahan                    |             Validasi Penambahan             |                   Setelah Penambahan                   |
-|:--------------------------------------------------------:|:-------------------------------------------:|:------------------------------------------------------:|
-| ![](docs/screenshots/PAM-LIHAT%20MOBIL%20PER%20MERK.png) | ![](docs/screenshots/PAM-TAMBAH%20STOK.png) | ![](docs/screenshots/PAM-TAMBAH%20STOK%20BERHASIL.png) |
+|                Sebelum Penambahan                |           Validasi Penambahan            |                Setelah Penambahan                |
+|:------------------------------------------------:|:----------------------------------------:|:------------------------------------------------:|
+| ![](docs/screenshots/PAM-SEBELUMDELETEMOBIL.png) | ![](docs/screenshots/PAM-TAMBAHSTOK.png) | ![](docs/screenshots/PAM-TAMBAHSTOKBERHASIL.png) |
 
 **Kurangi Stok:**
 1. Di card mobil, klik tombol merah (-)
@@ -143,9 +143,9 @@ ProjectTAInventarisMobil/
 3. Stok berkurang 1
 4. *Tombol disabled jika stok = 0*
 
-|                  Sebelum Pengurangan                   |             Validasi Pengurangan             |                   Setelah Pengurangan                   |
-|:------------------------------------------------------:|:--------------------------------------------:|:-------------------------------------------------------:|
-| ![](docs/screenshots/PAM-TAMBAH%20STOK%20BERHASIL.png) | ![](docs/screenshots/PAM-KURANGI%20STOK.png) | ![](docs/screenshots/PAM-KURANGI%20STOK%20BERHASIL.png) |
+|               Sebelum Pengurangan                |           Validasi Pengurangan            |                Setelah Pengurangan                |
+|:------------------------------------------------:|:-----------------------------------------:|:-------------------------------------------------:|
+| ![](docs/screenshots/PAM-TAMBAHSTOKBERHASIL.png) | ![](docs/screenshots/PAM-KURANGISTOK.png) | ![](docs/screenshots/PAM-KURANGISTOKBERHASIL.png) |
 
 ---
 
